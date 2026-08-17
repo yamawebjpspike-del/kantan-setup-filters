@@ -1,0 +1,44 @@
+name: Build blocklist
+
+on:
+  # 毎週月曜 03:00 UTC（日本時間 12:00）に実行
+  schedule:
+    - cron: "0 3 * * 1"
+  # 手動実行も可能にしておく（テスト用）
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: リポジトリを取得
+        uses: actions/checkout@v4
+
+      - name: Python をセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: EasyList を変換
+        run: |
+          python3 tools/convert.py \
+            --output docs/blocklist.json \
+            --limit 30000 \
+            --min-rules 1000
+
+      # 変換に失敗した場合、上のステップが非ゼロ終了するのでここには来ない。
+      # 壊れた JSON がコミットされることはない。
+      - name: 変更があればコミット
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/blocklist.json
+          if git diff --staged --quiet; then
+            echo "変更なし。コミットをスキップします。"
+          else
+            git commit -m "Update blocklist ($(date -u +%Y-%m-%d))"
+            git push
+          fi

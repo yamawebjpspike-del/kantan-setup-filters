@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-08-17",
+
+  "blocklist": {
+    "url": "https://yamawebjpspike-del.github.io/kantan-setup-filters/blocklist.json",
+    "version": "2026-08-17",
+    "maxRules": 30000,
+    "attribution": "The EasyList authors (https://easylist.to/) — CC BY-SA 3.0"
+  },
+
+  "shortcuts": {
+    "kantanSettings": "",
+    "openPasswords": "",
+    "openPhoneSettings": "",
+    "openSafariSettings": ""
+  },
+
+  "lowTrustTLDs": [
+    "top", "xyz", "icu", "cn", "tk", "buzz", "cfd", "sbs", "rest", "click"
+  ],
+
+  "urlShorteners": [
+    "bit.ly", "t.co", "goo.gl", "tinyurl.com", "is.gd", "ow.ly", "buff.ly"
+  ],
+
+  "scamSmsPhrases": [
+    "未納", "利用停止", "料金が確認できません", "お荷物のお届け",
+    "ご不在", "アカウントが凍結", "本人確認", "至急",
+    "24時間以内", "法的手続", "支払期限", "還付金"
+  ],
+
+  "cancellationUrls": [],
+
+  "guides": []
+}

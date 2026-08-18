@@ -10,11 +10,115 @@
   },
 
   "shortcuts": {
-    "kantanSettings": "",
-    "openPasswords": "",
-    "openPhoneSettings": "",
-    "openSafariSettings": ""
+    "note": "iCloudリンクはショートカット名を変更するたびに作り直すこと。LINEでの配布は不可（外部ブラウザ確認で高齢者が詰まる）。アプリ内から直接開くこと。",
+    "kantanSettings": {
+      "name": "みやすくして",
+      "url": "",
+      "siriPhrase": "みやすくして"
+    },
+    "openPasswords": { "name": "パスワードをひらく", "url": "" },
+    "openPhoneSettings": { "name": "でんわのせってい", "url": "" },
+    "openSafariSettings": { "name": "サファリのせってい", "url": "" }
   },
+
+  "guides": [
+    {
+      "id": "g-back-swipe",
+      "title": "まえのがめんに もどりたいとき",
+      "priority": 1,
+      "source": "祖父母からの要望（2026-08-17）",
+      "canAutomate": false,
+      "impossibleNote": "アプリの「もどる」やじるしを おおきくしたり、めだたせたりすることは できません。iPhone のきまりで、ほかのアプリの みためは かえられないためです。",
+      "steps": [
+        "ゆびを がめんの ひだりはしに おきます",
+        "そのまま みぎへ すべらせます",
+        "これで まえのがめんに もどれます",
+        "ちいさな やじるしを さがさなくても だいじょうぶです"
+      ]
+    },
+    {
+      "id": "g-button-shapes",
+      "title": "ボタンを みつけやすくする",
+      "priority": 1,
+      "source": "祖父母からの要望（2026-08-17）",
+      "canAutomate": false,
+      "automationNote": "ショートカットに該当アクションが存在しないため手動",
+      "steps": [
+        "「せってい」をひらきます",
+        "「アクセシビリティ」をえらびます",
+        "「がめんひょうじとテキストサイズ」をえらびます",
+        "「ボタンの形」を オンにします",
+        "おせるところに わくや したせんが つきます"
+      ]
+    },
+    {
+      "id": "g-control-center",
+      "title": "コントロールセンターを かんたんにする",
+      "priority": 1,
+      "source": "祖父母からの要望（2026-08-17）",
+      "canAutomate": false,
+      "impossibleNote": "むかしの iPhone のように 1まいのがめんに もどす せっていは ありません。つかわないものを けすことで、1まいに おさめられます。",
+      "steps": [
+        "「せってい」をひらきます",
+        "「コントロールセンター」をえらびます",
+        "つかわないものの あかいマイナスを おして けします",
+        "のこすとよいもの: おんりょう、あかるさ、ライト、カメラ、タイマー、けいさんき、きないモード、Wi-Fi、がめんのむきロック"
+      ],
+      "suggestedRemovals": [
+        "集中モード", "画面ミラーリング", "ホーム", "ボイスメモ",
+        "コードスキャナー", "聴覚", "ミュージック認識", "アクセシビリティのショートカット"
+      ]
+    },
+    {
+      "id": "g-call-screening",
+      "title": "しらないばんごうの でんわを ふるいわける",
+      "priority": 2,
+      "canAutomate": false,
+      "prerequisite": "g-contacts",
+      "prerequisiteNote": "さきに びょういん・やっきょく・やくしょ・ぎんこう・かぞく の ばんごうを でんわちょうに いれてください",
+      "steps": [
+        "「せってい」をひらきます",
+        "「アプリ」をえらびます",
+        "「でんわ」をえらびます",
+        "「不明な発信者をスクリーニング」をえらびます",
+        "「通話の理由を尋ねる」をえらびます"
+      ]
+    },
+    {
+      "id": "g-sms-filter",
+      "title": "しらないひとからの メッセージを わける",
+      "priority": 2,
+      "canAutomate": false,
+      "steps": [
+        "「せってい」をひらきます",
+        "「アプリ」→「メッセージ」をえらびます",
+        "「不明な差出人をフィルタ」を オンにします"
+      ]
+    },
+    {
+      "id": "g-safari-fraud",
+      "title": "あぶないホームページの けいこくを かくにんする",
+      "priority": 2,
+      "canAutomate": false,
+      "note": "Safari のなかだけで はたらきます。LINE のなかで ひらいたページでは はたらきません。",
+      "steps": [
+        "「せってい」をひらきます",
+        "「アプリ」→「Safari」をえらびます",
+        "「詐欺Webサイトの警告」が オンに なっているか みます"
+      ]
+    },
+    {
+      "id": "g-contentblocker",
+      "title": "こうこくブロックを つかえるようにする",
+      "priority": 3,
+      "canAutomate": false,
+      "steps": [
+        "「せってい」をひらきます",
+        "「アプリ」→「Safari」→「機能拡張」をえらびます",
+        "このアプリの なまえを オンにします"
+      ]
+    }
+  ],
 
   "lowTrustTLDs": [
     "top", "xyz", "icu", "cn", "tk", "buzz", "cfd", "sbs", "rest", "click"
@@ -30,7 +134,5 @@
     "24時間以内", "法的手続", "支払期限", "還付金"
   ],
 
-  "cancellationUrls": [],
-
-  "guides": []
+  "cancellationUrls": []
 }

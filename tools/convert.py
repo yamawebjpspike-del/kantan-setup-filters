@@ -14,9 +14,13 @@ Safari が理解できる部分だけを抽出して変換する必要がある�
 2. ルール数は 30,000 を上限とする。
    → Apple の公称上限は 150,000 だが、iPhone 12 / iOS 18 で 45,000 から
      読み込み失敗の報告がある。ターゲットは古い端末を使う高齢者なので保守的に。
-3. コスメティックフィルタ（##selector）は v1 では変換しない。
-   → ルール数を大きく消費するうえ、サイトの表示を壊すリスクが高い。
-     高齢者は「表示が崩れた原因」を特定できないため、安全側に倒す。
+3. コスメティックフィルタ（##selector）も変換する。【2026-08-19 に方針変更】
+   → 当初は「ルール数を大きく消費する」として捨てていたが、これは誤りだった。
+     Safari の css-display-none は **セレクタをカンマで連ねて 1 ルールにまとめられる**。
+     2 万件以上のコスメティックフィルタが、数十ルールに収まる。
+     実際、捨てていたのは全体の 3 分の 1 にあたる 24,465 行で、
+     広告の「枠」が残る主な原因になっていた（adblocktest.com で 13% の実測）。
+     拡張記法（:has() など Safari が解さないもの）は引き続き捨てる。
 4. 例外ルール（@@）は必ず全部残す。
    → 誤ブロックを防ぐためのルールなので、これを削ると壊れやすくなる。
 
@@ -36,10 +40,105 @@ import urllib.request
 # 設定
 # ---------------------------------------------------------------------------
 
+# 取り込むフィルタリスト。
+#
+# ■ どちらも EasyList プロジェクトのもので、CC BY-SA 3.0
+#
+#   easylist.txt     … 広告そのものを消す
+#   easyprivacy.txt  … 追跡（アクセス解析・行動記録）を止める
+#
+# EasyPrivacy を足したのは 2026-08-19。
+# EasyList だけでは Google Analytics・Hotjar・Yandex.Metrica などが
+# **1 つも止まっていなかった**（adblock-tester.com で 52 点／実測）。
+# 広告を消すリストと追跡を止めるリストは役目が別で、
+# uBlock Origin も AdGuard も既定で両方を使っている。
+#
+# ■ 日本語向けフィルタを入れていない理由（2026-08-19 に全部調べた）
+#
+#   ABP Japanese filters … CC BY-NC-SA 4.0。**商用不可**。有料アプリに使えない
+#                          （そのうえ 2021 年で更新が止まっている）
+#   AdGuard 日本語フィルタ … GPL-3.0。App Store と相容れない
+#                          （uBlock Origin のフィルタを外したのと同じ理由）
+#   豆腐フィルタ          … ライセンスの記載が無い。無記載は「許諾なし」と同じ
+#   280blocker           … 有料アプリの配布物。再配布の許諾が無い
+#
+# → **見つかりしだい足す、ではなく「使えるものが無い」が結論。**
+#    もう一度探すときは、まずライセンスから確認すること。
 EASYLIST_URL = "https://easylist.to/easylist/easylist.txt"
+EASYPRIVACY_URL = "https://easylist.to/easylist/easyprivacy.txt"
+DEFAULT_SOURCES = [EASYLIST_URL, EASYPRIVACY_URL]
 
-# Safari のルール数上限。公称 150,000 だが実運用の失敗報告を踏まえて保守的に設定。
-DEFAULT_LIMIT = 30_000
+# ルール数の上限。
+#
+# 【2026-08-19 に 30,000 から引き上げ】
+# もとは「iPhone 12 / iOS 18 で 45,000 から読み込み失敗の報告がある」ため
+# 保守的に 30,000 としていた。しかし実際に試したところ、
+# EasyList を全部入れても 58,877 件で、WebKit（Safari と同じ仕組み）は
+# 問題なく読み込めた。1.3 秒。
+#
+# 【2026-08-19 に EasyPrivacy を足したので 120,000 へ】
+# EasyList と EasyPrivacy を合わせて 114,717 件。
+# Apple の上限は拡張機能 1 個あたり 150,000 件なので、その範囲に収まっている。
+# WebKit での読み込みは 2.5 秒。
+#
+# 実機で読み込みに失敗するようなら 80,000 → 45,000 → 30,000 と下げること。
+# 件数を減らすときは、ドメイン丸ごとを止めるルール（||example.com）が
+# 優先して残るように並べ替えてあるので、効き目の高いものから残る。
+# **下げる前に必ず tools/verify_safari.swift で確かめる。**
+# 読み込み失敗の原因は件数ではなく、
+# 解せない正規表現が 1 行混ざっていることの方が多い。
+DEFAULT_LIMIT = 120_000
+
+# 1 ルールにまとめるセレクタの数。
+# ひとつの selector 文字列が長くなりすぎると Safari 側で扱いきれなくなるため区切る。
+SELECTOR_CHUNK = 400
+
+# Safari の url-filter は「限られた正規表現」しか解さない。
+# 下の書き方が 1 つでも混ざると、**ルールセット全体が読み込まれなくなる**。
+# 一部が効かなくなるのではなく、全部が効かなくなるので影響が大きい。
+#
+# 実際、上限を 6 万件に上げたときに EasyList の生正規表現ルールに
+# `\w{30,}` が含まれており、WebKit が
+# 「Character class is not supported」で丸ごと拒否した（2026-08-19 実測）。
+# 3 万件のときは、たまたまその行が入っていなかっただけだった。
+#
+# 使えるのは . [a-z] ( ) | * + ? ^ $ とエスケープした文字だけ。
+UNSUPPORTED_REGEX = (
+    re.compile(r"\\[wWdDsSbB]"),   # \w \d \s などの省略記法
+    re.compile(r"\{\d"),           # {2,5} のような回数指定
+    re.compile(r"\(\?"),           # (?: (?= などの特殊な括弧
+)
+
+
+def is_safari_compatible(url_filter: str) -> bool:
+    """
+    Safari の url-filter として通る書き方かどうか。
+
+    生正規表現は使わない方針なので、ふつうはここに引っかからない。
+    それでも残してあるのは、変換のしかたを変えたときの安全網として。
+    """
+    if any(p.search(url_filter) for p in UNSUPPORTED_REGEX):
+        return False
+
+    # エスケープされていない | は「どちらか」を表す書き方で、Safari は解さない
+    escaped = False
+    for ch in url_filter:
+        if escaped:
+            escaped = False
+            continue
+        if ch == "\\":
+            escaped = True
+        elif ch == "|":
+            return False
+    return True
+
+
+# Safari が解釈できない「拡張セレクタ」。含まれていたら捨てる
+UNSUPPORTED_SELECTOR_MARKERS = (
+    ":has(", ":has-text(", ":contains(", ":matches-css", ":xpath(",
+    ":-abp-", ":style(", ":remove(", ":upward(", ":nth-ancestor(",
+    ":min-text-length(", ":watch-attr(", ":if(", ":if-not(",
+)
 
 # Adblock Plus のリソース種別 → Safari の resource-type
 # Safari が受け付けるのは以下の 9 種類のみ:
@@ -104,9 +203,17 @@ def pattern_to_url_filter(pattern: str):
       ^                セパレータ
       /regex/          生の正規表現（そのまま渡す）
     """
-    # 生の正規表現はそのまま使う。ただし Safari が解釈できるとは限らないので慎重に。
+    # 生の正規表現（/.../ の形）は使わない。
+    #
+    # Safari の url-filter が解するのは正規表現のごく一部だけで、
+    # EasyList の生正規表現には `\w{30,}` や `(a|b|c)` が普通に出てくる。
+    # これが 1 行でも混ざると **ルールセット全体が読み込まれなくなる**
+    # （一部が効かなくなるのではなく、全部が効かなくなる）。
+    #
+    # EasyList 78,000 行のうち生正規表現はわずか 21 行しかない。
+    # 全部を危険にさらす見返りとしては、あまりに小さい（2026-08-19 実測）。
     if pattern.startswith("/") and pattern.endswith("/") and len(pattern) > 2:
-        return pattern[1:-1]
+        return None
 
     result = ""
     i = 0
@@ -219,6 +326,93 @@ def parse_options(option_string: str):
     return opts
 
 
+def convert_cosmetic_line(line: str):
+    """
+    要素を隠すフィルタ（例: `example.com##.ad-banner`）を読み取る。
+
+    戻り値: (ドメインの指定, 除外ドメイン, セレクタ) / 変換できなければ None
+
+    Safari の css-display-none は「このセレクタに当てはまる要素を隠す」だけの単純な仕組み。
+    Adblock Plus 側の拡張記法（:has() で親をたどる等）は解釈できないので捨てる。
+    """
+    marker = line.find("##")
+    if marker < 0:
+        return None
+
+    domain_part = line[:marker]
+    selector = line[marker + 2:].strip()
+
+    if not selector:
+        return None
+
+    # Safari が解さない書き方は捨てる。無理に渡すとルールセット全体が読み込めなくなる
+    lowered = selector.lower()
+    if any(m in lowered for m in UNSUPPORTED_SELECTOR_MARKERS):
+        return None
+
+    # 中括弧が入っているものはスタイル指定であって、隠す指定ではない
+    if "{" in selector or "}" in selector:
+        return None
+
+    include, exclude = [], []
+    for d in domain_part.split(","):
+        d = d.strip().lower()
+        if not d:
+            continue
+        if d.startswith("~"):
+            exclude.append("*" + d[1:])
+        else:
+            include.append("*" + d)
+
+    return include, exclude, selector
+
+
+def build_cosmetic_rules(entries):
+    """
+    読み取ったコスメティックフィルタを Safari のルールにまとめる。
+
+    ■ ここが要点
+    セレクタは **カンマで連ねて 1 ルールにできる**。
+    2 万件のフィルタをそのまま 2 万ルールにすると上限を食いつぶすが、
+    まとめれば数十ルールで済む。ルール数を理由に捨てる必要はまったくなかった。
+
+    ドメインの指定があるものは、同じ指定どうしをまとめる。
+    """
+    generic = []
+    by_domain = {}
+
+    for include, exclude, selector in entries:
+        if not include and not exclude:
+            generic.append(selector)
+        else:
+            key = (tuple(sorted(include)), tuple(sorted(exclude)))
+            by_domain.setdefault(key, []).append(selector)
+
+    rules = []
+
+    def add(selectors, include, exclude):
+        for i in range(0, len(selectors), SELECTOR_CHUNK):
+            chunk = selectors[i:i + SELECTOR_CHUNK]
+            trigger = {"url-filter": ".*"}
+            if include:
+                trigger["if-domain"] = list(include)
+            if exclude:
+                trigger["unless-domain"] = list(exclude)
+            rules.append({
+                "trigger": trigger,
+                "action": {"type": "css-display-none", "selector": ",".join(chunk)},
+            })
+
+    # どのサイトでも隠すもの
+    add(sorted(set(generic)), (), ())
+
+    # サイトを限って隠すもの
+    for (include, exclude), selectors in sorted(by_domain.items()):
+        add(sorted(set(selectors)), include, exclude)
+
+    return rules
+
+
 def convert_line(line: str):
     """
     EasyList の 1 行を Safari のルール 1 個に変換する。
@@ -231,7 +425,9 @@ def convert_line(line: str):
     if not line or line.startswith("!") or line.startswith("["):
         return None
 
-    # コスメティックフィルタは v1 では扱わない（設計方針 3 を参照）
+    # 要素を隠すフィルタは別の関数で扱う（build_cosmetic_rules）。
+    # #@# は「隠すのをやめる」指定で Safari に相当する仕組みが無いため捨てる。
+    # #?# / #$# は拡張記法で、これも Safari は解さない
     if "##" in line or "#@#" in line or "#?#" in line or "#$#" in line:
         return None
 
@@ -252,6 +448,10 @@ def convert_line(line: str):
 
     url_filter = pattern_to_url_filter(pattern)
     if not url_filter:
+        return None
+
+    # Safari が解さない書き方が混ざると全体が読み込めなくなるので、ここで落とす
+    if not is_safari_compatible(url_filter):
         return None
 
     # 極端に短いパターンは何にでもマッチしてしまい危険なので捨てる
@@ -313,6 +513,10 @@ def validate(rules, limit, min_rules=1000):
     for i, r in enumerate(rules):
         if "trigger" not in r or "action" not in r:
             raise ValueError(f"ルール {i} の形式が不正です")
+        if r["action"]["type"] == "css-display-none":
+            selector = r["action"].get("selector")
+            if not selector:
+                raise ValueError(f"ルール {i} に selector がありません")
         if "url-filter" not in r["trigger"]:
             raise ValueError(f"ルール {i} に url-filter がありません")
         # 正規表現として成立するか確認
@@ -320,6 +524,13 @@ def validate(rules, limit, min_rules=1000):
             re.compile(r["trigger"]["url-filter"])
         except re.error as e:
             raise ValueError(f"ルール {i} の url-filter が不正です: {e}")
+        # Python では通っても Safari が解さない書き方がある。
+        # 1 件でも混ざるとルールセット全体が読み込まれなくなる
+        if not is_safari_compatible(r["trigger"]["url-filter"]):
+            raise ValueError(
+                f"ルール {i} に Safari が解さない正規表現が含まれています: "
+                f"{r['trigger']['url-filter'][:80]}"
+            )
 
     # 例外ルールは必ず block ルールより後ろにある必要がある。
     # Safari の ignore-previous-rules は「それより前のルール」しか打ち消せないため。
@@ -328,7 +539,7 @@ def validate(rules, limit, min_rules=1000):
         if r["action"]["type"] == "ignore-previous-rules":
             seen_exception = True
         elif seen_exception:
-            raise ValueError("block ルールが例外ルールより後ろにあります")
+            raise ValueError("block / css-display-none ルールが例外ルールより後ろにあります")
 
 
 # ---------------------------------------------------------------------------
@@ -339,8 +550,8 @@ def main():
     parser = argparse.ArgumentParser(
         description="EasyList を Safari コンテンツブロッカー JSON に変換する"
     )
-    parser.add_argument("--url", default=EASYLIST_URL,
-                        help="取得元のフィルタリスト URL")
+    parser.add_argument("--url", action="append", default=None,
+                        help="取得元のフィルタリスト URL（複数指定できる）")
     parser.add_argument("--input", default=None,
                         help="URL の代わりにローカルファイルを読む（テスト用）")
     parser.add_argument("--output", default="docs/blocklist.json",
@@ -352,28 +563,46 @@ def main():
     args = parser.parse_args()
 
     # 1. フィルタリストを取得
+    lines = []
     if args.input:
         with open(args.input, encoding="utf-8", errors="replace") as f:
-            text = f.read()
-        print(f"読み込み: {args.input}")
+            lines = f.read().splitlines()
+        print(f"読み込み: {args.input} — {len(lines):,} 行")
     else:
-        print(f"取得中: {args.url}")
-        req = urllib.request.Request(
-            args.url,
-            headers={"User-Agent": "kantan-setup-filters/1.0"},
-        )
-        with urllib.request.urlopen(req, timeout=60) as res:
-            text = res.read().decode("utf-8", errors="replace")
+        for url in (args.url or DEFAULT_SOURCES):
+            print(f"取得中: {url}")
+            req = urllib.request.Request(
+                url,
+                headers={"User-Agent": "kantan-setup-filters/1.0"},
+            )
+            with urllib.request.urlopen(req, timeout=60) as res:
+                text = res.read().decode("utf-8", errors="replace")
+            got = text.splitlines()
+            print(f"  {len(got):,} 行")
+            lines.extend(got)
 
-    lines = text.splitlines()
-    print(f"読み込んだ行数: {len(lines):,}")
+    print(f"読み込んだ行数の合計: {len(lines):,}")
 
     # 2. 変換
     blocks = []      # (priority, rule)
     exceptions = []
+    cosmetic_entries = []
     skipped = 0
 
     for line in lines:
+        stripped = line.strip()
+        # 要素を隠すフィルタ。`#@#`（隠すのをやめる）と拡張記法は対象外
+        if ("##" in stripped
+                and "#@#" not in stripped
+                and "#?#" not in stripped
+                and "#$#" not in stripped):
+            entry = convert_cosmetic_line(stripped)
+            if entry is None:
+                skipped += 1
+            else:
+                cosmetic_entries.append(entry)
+            continue
+
         converted = convert_line(line)
         if converted is None:
             skipped += 1
@@ -390,15 +619,20 @@ def main():
         else:
             blocks.append((priority, rule))
 
-    print(f"変換できたブロックルール: {len(blocks):,}")
-    print(f"変換できた例外ルール:     {len(exceptions):,}")
-    print(f"変換できずに捨てた行:     {skipped:,}")
+    cosmetic_rules = build_cosmetic_rules(cosmetic_entries)
+
+    print(f"変換できたブロックルール:   {len(blocks):,}")
+    print(f"変換できた例外ルール:       {len(exceptions):,}")
+    print(f"要素を隠すフィルタ:         {len(cosmetic_entries):,} 行 → {len(cosmetic_rules):,} ルールにまとめた")
+    print(f"変換できずに捨てた行:       {skipped:,}")
 
     # 3. 上限に収める
-    # 例外ルールは誤ブロック防止のため全部残し、ブロックルール側を削る。
-    room = args.limit - len(exceptions)
+    # 例外ルールと、要素を隠すルールは全部残す。
+    # 例外は誤ブロックを防ぐためのもので、隠すルールはまとめてあるので数が少ない。
+    # 削るのはブロックルール側だけにする。
+    room = args.limit - len(exceptions) - len(cosmetic_rules)
     if room < 0:
-        raise SystemExit("例外ルールだけで上限を超えています。limit を見直してください")
+        raise SystemExit("例外と隠すルールだけで上限を超えています。limit を見直してください")
 
     # 優先度の高い順（ドメインアンカー優先）に並べ替えてから切る
     blocks.sort(key=lambda x: -x[0])
@@ -407,8 +641,16 @@ def main():
     if dropped > 0:
         print(f"上限に収めるため {dropped:,} 件のブロックルールを削除しました")
 
-    # 例外ルールは必ず最後に置く（ignore-previous-rules の仕様）
-    rules = kept + exceptions
+    # 並べる順番には意味がある。
+    #
+    #   1. ブロックするルール
+    #   2. 要素を隠すルール
+    #   3. 例外ルール（ignore-previous-rules）
+    #
+    # 例外は「それより前のルール」しか打ち消せない。
+    # 例外を最後に置くことで、`@@||example.com^$document` のような
+    # 「このサイトでは何もしない」指定が、隠すルールにも効くようになる。
+    rules = kept + cosmetic_rules + exceptions
 
     # 4. 検証してから書き出す
     validate(rules, args.limit, args.min_rules)

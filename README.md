@@ -5,7 +5,8 @@ Safari content blocker rules converted from EasyList, published for the
 
 ## Attribution and license
 
-The rule sets in `docs/` are derived from **EasyList**.
+The rule sets in `docs/` are derived from **EasyList** and **EasyPrivacy**,
+both maintained by the EasyList authors.
 
 - Source: **The EasyList authors** — https://easylist.to/
 - License: **Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)**
@@ -22,7 +23,7 @@ the MIT License. See `LICENSE`.
 
 A GitHub Actions workflow runs every Monday:
 
-1. Fetches the latest EasyList
+1. Fetches the latest EasyList and EasyPrivacy
 2. Converts Adblock Plus syntax to Safari content-blocking JSON
 3. Drops rules Safari cannot express (scriptlets, `$removeparam`, `$csp`,
    procedural cosmetic filters, and so on)

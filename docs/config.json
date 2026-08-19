@@ -1,20 +1,25 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-17",
+  "updatedAt": "2026-08-19",
 
   "blocklist": {
     "url": "https://yamawebjpspike-del.github.io/kantan-setup-filters/blocklist.json",
-    "version": "2026-08-17",
-    "maxRules": 30000,
-    "attribution": "The EasyList authors (https://easylist.to/) — CC BY-SA 3.0"
+    "version": "2026-08-19",
+    "maxRules": 120000,
+    "attribution": "EasyList / EasyPrivacy — The EasyList authors (https://easylist.to/) — CC BY-SA 3.0"
   },
 
   "shortcuts": {
-    "note": "iCloudリンクはショートカット名を変更するたびに作り直すこと。LINEでの配布は不可（外部ブラウザ確認で高齢者が詰まる）。アプリ内から直接開くこと。",
+    "note": "iCloudリンクはショートカット名を変更するたびに作り直すこと。LINEでの配布は不可（外部ブラウザ確認で高齢者が詰まる）。アプリ内から直接開くこと。「もとにもどして」は必ず対で配ること。",
     "kantanSettings": {
-      "name": "みやすくして",
-      "url": "",
-      "siriPhrase": "みやすくして"
+      "name": "見やすくして",
+      "url": "https://www.icloud.com/shortcuts/ece7fbcd4bff487083aff9a7ef7ff818",
+      "siriPhrase": "見やすくして"
+    },
+    "restoreSettings": {
+      "name": "もとに戻して",
+      "url": "https://www.icloud.com/shortcuts/73c1651592ef448b9d5299e01af4fbf2",
+      "siriPhrase": "もとに戻して"
     },
     "openPasswords": { "name": "パスワードをひらく", "url": "" },
     "openPhoneSettings": { "name": "でんわのせってい", "url": "" },
@@ -24,45 +29,57 @@
   "guides": [
     {
       "id": "g-back-swipe",
-      "title": "まえのがめんに もどりたいとき",
+      "symbolName": "arrow.uturn.backward",
+      "title": "前の 画面に 戻る",
       "priority": 1,
       "source": "祖父母からの要望（2026-08-17）",
       "canAutomate": false,
-      "impossibleNote": "アプリの「もどる」やじるしを おおきくしたり、めだたせたりすることは できません。iPhone のきまりで、ほかのアプリの みためは かえられないためです。",
+      "demoLessonID": "back-swipe",
+      "impossibleNote": "アプリの「戻る」矢印を 大きくしたり、目立たせたり することは できません。ほかの アプリの 見た目は 変えられない、という iPhone の きまりが あるためです。",
       "steps": [
-        "ゆびを がめんの ひだりはしに おきます",
-        "そのまま みぎへ すべらせます",
-        "これで まえのがめんに もどれます",
-        "ちいさな やじるしを さがさなくても だいじょうぶです"
-      ]
+        "指を 画面の 左はしに 置きます",
+        "そのまま 右へ すべらせます",
+        "これで 前の 画面に 戻れます"
+      ],
+      "note": "小さな 矢印を さがさなくても だいじょうぶです。ほとんどの アプリで 使えます。"
     },
     {
       "id": "g-button-shapes",
-      "title": "ボタンを みつけやすくする",
+      "symbolName": "rectangle.and.hand.point.up.left",
+      "title": "押せる ところを 見つけやすく する",
       "priority": 1,
       "source": "祖父母からの要望（2026-08-17）",
       "canAutomate": false,
       "automationNote": "ショートカットに該当アクションが存在しないため手動",
+      "walkthrough": [
+        { "screen": "設定", "tap": "アクセシビリティ" },
+        { "screen": "アクセシビリティ", "tap": "画面表示とテキストサイズ" },
+        { "screen": "画面表示とテキストサイズ", "tap": "枠線を表示", "toggle": true }
+      ],
       "steps": [
-        "「せってい」をひらきます",
-        "「アクセシビリティ」をえらびます",
-        "「がめんひょうじとテキストサイズ」をえらびます",
-        "「ボタンの形」を オンにします",
-        "おせるところに わくや したせんが つきます"
-      ]
+        "「設定」を ひらきます",
+        "「アクセシビリティ」を えらびます",
+        "「画面表示とテキストサイズ」を えらびます",
+        "「枠線を表示」を 押して 入に します",
+        "押せる ところに 枠や 下線が つきます"
+      ],
+      "note": "元に 戻したい ときは、同じ ところを もう一度 押して 切に します。"
     },
     {
       "id": "g-control-center",
-      "title": "コントロールセンターを かんたんにする",
+      "symbolName": "switch.2",
+      "title": "よく使う ボタンだけ 出るように する",
       "priority": 1,
       "source": "祖父母からの要望（2026-08-17）",
       "canAutomate": false,
-      "impossibleNote": "むかしの iPhone のように 1まいのがめんに もどす せっていは ありません。つかわないものを けすことで、1まいに おさめられます。",
+      "demoLessonID": "control-center",
+      "note": "コントロールセンターとは、画面の 右上の はしから 下へ すべらせると 出てくる 画面の ことです。明るさ・音量・ライトなどを すぐに 変えられます。ここに 並ぶ ボタンが 多いと 何ページにも なり、目当ての ものを さがすことに なります。使わない ものを 消すと さがさずに 済みます。",
+      "impossibleNote": "昔の iPhone のように「1 ページだけ」に 戻す 設定は ありません。ただし 使わない ものを 消していけば、実際に 1 ページに おさまります。",
       "steps": [
-        "「せってい」をひらきます",
-        "「コントロールセンター」をえらびます",
-        "つかわないものの あかいマイナスを おして けします",
-        "のこすとよいもの: おんりょう、あかるさ、ライト、カメラ、タイマー、けいさんき、きないモード、Wi-Fi、がめんのむきロック"
+        "画面の 右上の はしから 下へ すべらせて、コントロールセンターを 出します",
+        "ボタンの ない ところを 指で 長く 押します",
+        "ボタンの 左上に 出てきた ⊖ を 押すと、その ボタンが 消えます",
+        "消し終わったら、何も ない ところを 一度 押して 終わります"
       ],
       "suggestedRemovals": [
         "集中モード", "画面ミラーリング", "ホーム", "ボイスメモ",
@@ -70,68 +87,112 @@
       ]
     },
     {
+      "id": "g-contacts",
+      "symbolName": "person.crop.circle",
+      "title": "よく かける 相手を 電話帳に 入れる",
+      "priority": 2,
+      "canAutomate": false,
+      "steps": [
+        "かかりつけの 病院の 番号を 入れます",
+        "薬局の 番号を 入れます",
+        "市役所・区役所の 番号を 入れます",
+        "銀行・郵便局の 番号を 入れます",
+        "家族・親戚の 番号を 入れます"
+      ],
+      "note": "次の「知らない 番号の 電話を ふるい分ける」は、電話帳に 入っていない 相手だけを ふるい分けます。先に ここを 済ませておかないと、病院からの 電話まで ふるい分けられて しまいます。"
+    },
+    {
       "id": "g-call-screening",
-      "title": "しらないばんごうの でんわを ふるいわける",
+      "symbolName": "phone.badge.waveform",
+      "title": "知らない 番号の 電話を ふるい分ける",
       "priority": 2,
       "canAutomate": false,
       "prerequisite": "g-contacts",
-      "prerequisiteNote": "さきに びょういん・やっきょく・やくしょ・ぎんこう・かぞく の ばんごうを でんわちょうに いれてください",
+      "prerequisiteNote": "先に 病院・薬局・役所・銀行・家族の 番号を 電話帳に 入れてください",
+      "walkthrough": [
+        { "screen": "設定", "tap": "アプリ" },
+        { "screen": "アプリ", "tap": "電話" },
+        { "screen": "電話", "tap": "不明な発信者をスクリーニング" },
+        { "screen": "不明な発信者をスクリーニング", "tap": "通話の理由を尋ねる" }
+      ],
       "steps": [
-        "「せってい」をひらきます",
-        "「アプリ」をえらびます",
-        "「でんわ」をえらびます",
-        "「不明な発信者をスクリーニング」をえらびます",
-        "「通話の理由を尋ねる」をえらびます"
-      ]
+        "「設定」を ひらきます",
+        "「アプリ」を えらびます",
+        "「電話」を えらびます",
+        "「不明な発信者をスクリーニング」を えらびます",
+        "「通話の理由を尋ねる」を えらびます"
+      ],
+      "note": "「消音」は えらばないで ください。病院や 宅配からの 電話まで 留守番電話に 回り、気づけなく なります。「通話の理由を尋ねる」なら、用件が 文字で 出るので、出るべき 電話を のがしません。"
     },
     {
       "id": "g-sms-filter",
-      "title": "しらないひとからの メッセージを わける",
+      "symbolName": "message.badge",
+      "title": "知らない 人からの メッセージを 分ける",
       "priority": 2,
       "canAutomate": false,
+      "walkthrough": [
+        { "screen": "設定", "tap": "アプリ" },
+        { "screen": "アプリ", "tap": "メッセージ" },
+        { "screen": "メッセージ", "tap": "不明な差出人をフィルタ", "toggle": true }
+      ],
       "steps": [
-        "「せってい」をひらきます",
-        "「アプリ」→「メッセージ」をえらびます",
-        "「不明な差出人をフィルタ」を オンにします"
-      ]
+        "「設定」を ひらきます",
+        "「アプリ」を えらびます",
+        "「メッセージ」を えらびます",
+        "「不明な差出人をフィルタ」を 押して 入に します"
+      ],
+      "note": "電話帳に 入っていない 相手からの メッセージが 別の ところに まとまります。消える わけでは ないので、あとから 見られます。"
     },
     {
       "id": "g-safari-fraud",
-      "title": "あぶないホームページの けいこくを かくにんする",
+      "symbolName": "exclamationmark.shield",
+      "title": "あぶない ページの 警告を 受け取る",
       "priority": 2,
       "canAutomate": false,
-      "note": "Safari のなかだけで はたらきます。LINE のなかで ひらいたページでは はたらきません。",
+      "walkthrough": [
+        { "screen": "設定", "tap": "アプリ" },
+        { "screen": "アプリ", "tap": "Safari" },
+        { "screen": "Safari", "tap": "詐欺Webサイトの警告", "toggle": true }
+      ],
       "steps": [
-        "「せってい」をひらきます",
-        "「アプリ」→「Safari」をえらびます",
-        "「詐欺Webサイトの警告」が オンに なっているか みます"
-      ]
+        "「設定」を ひらきます",
+        "「アプリ」を えらびます",
+        "「Safari」を えらびます",
+        "「詐欺Webサイトの警告」が 入に なっているか 見ます"
+      ],
+      "note": "この 警告は Safari の 中だけで はたらきます。LINE や メールの 中で ひらいた ページでは はたらかない ことが あります。あやしい ものは ひらく前に ご家族に 見せてください。"
     },
     {
       "id": "g-contentblocker",
-      "title": "こうこくブロックを つかえるようにする",
+      "symbolName": "hand.raised",
+      "title": "ホームページの 広告を 減らす",
       "priority": 3,
       "canAutomate": false,
+      "walkthrough": [
+        { "screen": "設定", "tap": "アプリ" },
+        { "screen": "アプリ", "tap": "Safari" },
+        { "screen": "Safari", "tap": "機能拡張" },
+        { "screen": "機能拡張", "tap": "かんたん設定", "toggle": true }
+      ],
       "steps": [
-        "「せってい」をひらきます",
-        "「アプリ」→「Safari」→「機能拡張」をえらびます",
-        "このアプリの なまえを オンにします"
-      ]
+        "「設定」を ひらきます",
+        "「アプリ」を えらびます",
+        "「Safari」を えらびます",
+        "「機能拡張」を えらびます",
+        "「かんたん設定」を 押して 入に します"
+      ],
+      "note": "ページの 表示が おかしく なった ときは、Siri に「広告ブロックを 止めて」と 話しかけると、30 分だけ 止まります。"
     }
   ],
 
-  "lowTrustTLDs": [
-    "top", "xyz", "icu", "cn", "tk", "buzz", "cfd", "sbs", "rest", "click"
-  ],
+  "lowTrustTLDs": ["top", "xyz", "icu", "cn", "tk", "buzz", "cfd", "sbs", "rest", "click"],
 
-  "urlShorteners": [
-    "bit.ly", "t.co", "goo.gl", "tinyurl.com", "is.gd", "ow.ly", "buff.ly"
-  ],
+  "urlShorteners": ["bit.ly", "t.co", "goo.gl", "tinyurl.com", "is.gd", "ow.ly", "buff.ly"],
 
   "scamSmsPhrases": [
-    "未納", "利用停止", "料金が確認できません", "お荷物のお届け",
-    "ご不在", "アカウントが凍結", "本人確認", "至急",
-    "24時間以内", "法的手続", "支払期限", "還付金"
+    "未納", "利用停止", "料金が確認できません", "お荷物のお届け", "ご不在",
+    "アカウントが凍結", "本人確認", "至急", "24時間以内", "法的手続",
+    "支払期限", "還付金"
   ],
 
   "cancellationUrls": []

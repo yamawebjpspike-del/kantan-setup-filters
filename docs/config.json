@@ -1,14 +1,12 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-19",
-
+  "updatedAt": "2026-08-21",
   "blocklist": {
     "url": "https://yamawebjpspike-del.github.io/kantan-setup-filters/blocklist.json",
     "version": "2026-08-19",
     "maxRules": 120000,
     "attribution": "EasyList / EasyPrivacy — The EasyList authors (https://easylist.to/) — CC BY-SA 3.0"
   },
-
   "shortcuts": {
     "note": "iCloudリンクはショートカット名を変更するたびに作り直すこと。LINEでの配布は不可（外部ブラウザ確認で高齢者が詰まる）。アプリ内から直接開くこと。「もとにもどして」は必ず対で配ること。",
     "kantanSettings": {
@@ -21,11 +19,19 @@
       "url": "https://www.icloud.com/shortcuts/73c1651592ef448b9d5299e01af4fbf2",
       "siriPhrase": "もとに戻して"
     },
-    "openPasswords": { "name": "パスワードをひらく", "url": "" },
-    "openPhoneSettings": { "name": "でんわのせってい", "url": "" },
-    "openSafariSettings": { "name": "サファリのせってい", "url": "" }
+    "openPasswords": {
+      "name": "パスワードをひらく",
+      "url": ""
+    },
+    "openPhoneSettings": {
+      "name": "でんわのせってい",
+      "url": ""
+    },
+    "openSafariSettings": {
+      "name": "サファリのせってい",
+      "url": ""
+    }
   },
-
   "guides": [
     {
       "id": "g-back-swipe",
@@ -52,9 +58,23 @@
       "canAutomate": false,
       "automationNote": "ショートカットに該当アクションが存在しないため手動",
       "walkthrough": [
-        { "screen": "設定", "tap": "アクセシビリティ" },
-        { "screen": "アクセシビリティ", "tap": "画面表示とテキストサイズ" },
-        { "screen": "画面表示とテキストサイズ", "tap": "枠線を表示", "toggle": true }
+        {
+          "screen": "ホーム画面",
+          "tap": "設定"
+        },
+        {
+          "screen": "設定",
+          "tap": "アクセシビリティ"
+        },
+        {
+          "screen": "アクセシビリティ",
+          "tap": "画面表示とテキストサイズ"
+        },
+        {
+          "screen": "画面表示とテキストサイズ",
+          "tap": "枠線を表示",
+          "toggle": true
+        }
       ],
       "steps": [
         "「設定」を ひらきます",
@@ -82,8 +102,14 @@
         "消し終わったら、何も ない ところを 一度 押して 終わります"
       ],
       "suggestedRemovals": [
-        "集中モード", "画面ミラーリング", "ホーム", "ボイスメモ",
-        "コードスキャナー", "聴覚", "ミュージック認識", "アクセシビリティのショートカット"
+        "集中モード",
+        "画面ミラーリング",
+        "ホーム",
+        "ボイスメモ",
+        "コードスキャナー",
+        "聴覚",
+        "ミュージック認識",
+        "アクセシビリティのショートカット"
       ]
     },
     {
@@ -110,10 +136,26 @@
       "prerequisite": "g-contacts",
       "prerequisiteNote": "先に 病院・薬局・役所・銀行・家族の 番号を 電話帳に 入れてください",
       "walkthrough": [
-        { "screen": "設定", "tap": "アプリ" },
-        { "screen": "アプリ", "tap": "電話" },
-        { "screen": "電話", "tap": "不明な発信者をスクリーニング" },
-        { "screen": "不明な発信者をスクリーニング", "tap": "通話の理由を尋ねる" }
+        {
+          "screen": "ホーム画面",
+          "tap": "設定"
+        },
+        {
+          "screen": "設定",
+          "tap": "アプリ"
+        },
+        {
+          "screen": "アプリ",
+          "tap": "電話"
+        },
+        {
+          "screen": "電話",
+          "tap": "不明な発信者をスクリーニング"
+        },
+        {
+          "screen": "不明な発信者をスクリーニング",
+          "tap": "通話の理由を尋ねる"
+        }
       ],
       "steps": [
         "「設定」を ひらきます",
@@ -131,9 +173,23 @@
       "priority": 2,
       "canAutomate": false,
       "walkthrough": [
-        { "screen": "設定", "tap": "アプリ" },
-        { "screen": "アプリ", "tap": "メッセージ" },
-        { "screen": "メッセージ", "tap": "不明な差出人をフィルタ", "toggle": true }
+        {
+          "screen": "ホーム画面",
+          "tap": "設定"
+        },
+        {
+          "screen": "設定",
+          "tap": "アプリ"
+        },
+        {
+          "screen": "アプリ",
+          "tap": "メッセージ"
+        },
+        {
+          "screen": "メッセージ",
+          "tap": "不明な差出人をフィルタ",
+          "toggle": true
+        }
       ],
       "steps": [
         "「設定」を ひらきます",
@@ -150,9 +206,23 @@
       "priority": 2,
       "canAutomate": false,
       "walkthrough": [
-        { "screen": "設定", "tap": "アプリ" },
-        { "screen": "アプリ", "tap": "Safari" },
-        { "screen": "Safari", "tap": "詐欺Webサイトの警告", "toggle": true }
+        {
+          "screen": "ホーム画面",
+          "tap": "設定"
+        },
+        {
+          "screen": "設定",
+          "tap": "アプリ"
+        },
+        {
+          "screen": "アプリ",
+          "tap": "Safari"
+        },
+        {
+          "screen": "Safari",
+          "tap": "詐欺Webサイトの警告",
+          "toggle": true
+        }
       ],
       "steps": [
         "「設定」を ひらきます",
@@ -165,14 +235,32 @@
     {
       "id": "g-contentblocker",
       "symbolName": "hand.raised",
+      "settingsTarget": "safariExtensions",
       "title": "ホームページの 広告を 減らす",
       "priority": 3,
       "canAutomate": false,
       "walkthrough": [
-        { "screen": "設定", "tap": "アプリ" },
-        { "screen": "アプリ", "tap": "Safari" },
-        { "screen": "Safari", "tap": "機能拡張" },
-        { "screen": "機能拡張", "tap": "かんたん設定", "toggle": true }
+        {
+          "screen": "ホーム画面",
+          "tap": "設定"
+        },
+        {
+          "screen": "設定",
+          "tap": "アプリ"
+        },
+        {
+          "screen": "アプリ",
+          "tap": "Safari"
+        },
+        {
+          "screen": "Safari",
+          "tap": "機能拡張"
+        },
+        {
+          "screen": "機能拡張",
+          "tap": "かんたん設定",
+          "toggle": true
+        }
       ],
       "steps": [
         "「設定」を ひらきます",
@@ -182,18 +270,81 @@
         "「かんたん設定」を 押して 入に します"
       ],
       "note": "ページの 表示が おかしく なった ときは、Siri に「広告ブロックを 止めて」と 話しかけると、30 分だけ 止まります。"
+    },
+    {
+      "id": "g-default-browser",
+      "symbolName": "safari",
+      "title": "広告ブロックが 効く ブラウザに する",
+      "priority": 3,
+      "canAutomate": false,
+      "settingsTarget": "defaultApps",
+      "note": "iPhone・iPad では、Safari 以外の ブラウザでも 中身の 仕組みは 同じ ものが 使われています。ただし 広告ブロックと「詐欺Webサイトの警告」は Safari の 中でしか はたらきません。ほかの ブラウザが 悪い という ことでは ありません。",
+      "impossibleNote": "ほかの ブラウザで 広告ブロックを 使うことは できません。この 仕組みは Safari 専用に なっているためです。",
+      "walkthrough": [
+        {
+          "screen": "ホーム画面",
+          "tap": "設定"
+        },
+        {
+          "screen": "設定",
+          "tap": "アプリ"
+        },
+        {
+          "screen": "アプリ",
+          "tap": "デフォルトのApp"
+        },
+        {
+          "screen": "デフォルトのApp",
+          "tap": "ブラウザ"
+        },
+        {
+          "screen": "ブラウザ",
+          "tap": "Safari"
+        }
+      ],
+      "steps": [
+        "「設定」を ひらきます",
+        "「アプリ」を えらびます",
+        "「デフォルトのApp」を えらびます",
+        "「ブラウザ」を えらびます",
+        "「Safari」を えらびます"
+      ]
     }
   ],
-
-  "lowTrustTLDs": ["top", "xyz", "icu", "cn", "tk", "buzz", "cfd", "sbs", "rest", "click"],
-
-  "urlShorteners": ["bit.ly", "t.co", "goo.gl", "tinyurl.com", "is.gd", "ow.ly", "buff.ly"],
-
-  "scamSmsPhrases": [
-    "未納", "利用停止", "料金が確認できません", "お荷物のお届け", "ご不在",
-    "アカウントが凍結", "本人確認", "至急", "24時間以内", "法的手続",
-    "支払期限", "還付金"
+  "lowTrustTLDs": [
+    "top",
+    "xyz",
+    "icu",
+    "cn",
+    "tk",
+    "buzz",
+    "cfd",
+    "sbs",
+    "rest",
+    "click"
   ],
-
+  "urlShorteners": [
+    "bit.ly",
+    "t.co",
+    "goo.gl",
+    "tinyurl.com",
+    "is.gd",
+    "ow.ly",
+    "buff.ly"
+  ],
+  "scamSmsPhrases": [
+    "未納",
+    "利用停止",
+    "料金が確認できません",
+    "お荷物のお届け",
+    "ご不在",
+    "アカウントが凍結",
+    "本人確認",
+    "至急",
+    "24時間以内",
+    "法的手続",
+    "支払期限",
+    "還付金"
+  ],
   "cancellationUrls": []
 }

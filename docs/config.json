@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-23",
+  "updatedAt": "2026-08-24",
   "blocklist": {
     "url": "https://yamawebjpspike-del.github.io/kantan-setup-filters/blocklist.json",
     "version": "2026-08-19",
@@ -341,5 +341,577 @@
     "支払期限",
     "還付金"
   ],
-  "cancellationUrls": []
+  "cancellationUrls": [],
+  "scamPhraseRules": [
+    {
+      "word": "俺だけど",
+      "category": "identity",
+      "weight": 3
+    },
+    {
+      "word": "おれだけど",
+      "category": "identity",
+      "weight": 3
+    },
+    {
+      "word": "オレだけど",
+      "category": "identity",
+      "weight": 3
+    },
+    {
+      "word": "僕だけど",
+      "category": "identity",
+      "weight": 3
+    },
+    {
+      "word": "ぼくだけど",
+      "category": "identity",
+      "weight": 3
+    },
+    {
+      "word": "私だけど",
+      "category": "identity",
+      "weight": 2
+    },
+    {
+      "word": "わたしだけど",
+      "category": "identity",
+      "weight": 2
+    },
+    {
+      "word": "番号が変わった",
+      "category": "identity",
+      "weight": 3
+    },
+    {
+      "word": "番号が変わりました",
+      "category": "identity",
+      "weight": 3
+    },
+    {
+      "word": "電話番号が変わ",
+      "category": "identity",
+      "weight": 3
+    },
+    {
+      "word": "携帯を落とし",
+      "category": "identity",
+      "weight": 3
+    },
+    {
+      "word": "携帯をなくし",
+      "category": "identity",
+      "weight": 3
+    },
+    {
+      "word": "スマホを落とし",
+      "category": "identity",
+      "weight": 3
+    },
+    {
+      "word": "携帯が壊れ",
+      "category": "identity",
+      "weight": 2
+    },
+    {
+      "word": "機種変更した",
+      "category": "identity",
+      "weight": 2
+    },
+    {
+      "word": "新しい番号",
+      "category": "identity",
+      "weight": 2
+    },
+    {
+      "word": "この番号に登録",
+      "category": "identity",
+      "weight": 3
+    },
+    {
+      "word": "誰にも言わないで",
+      "category": "secrecy",
+      "weight": 3
+    },
+    {
+      "word": "誰にも言わず",
+      "category": "secrecy",
+      "weight": 3
+    },
+    {
+      "word": "だれにも言わないで",
+      "category": "secrecy",
+      "weight": 3
+    },
+    {
+      "word": "誰にも相談しないで",
+      "category": "secrecy",
+      "weight": 3
+    },
+    {
+      "word": "内緒に",
+      "category": "secrecy",
+      "weight": 3
+    },
+    {
+      "word": "ないしょに",
+      "category": "secrecy",
+      "weight": 3
+    },
+    {
+      "word": "他言しないで",
+      "category": "secrecy",
+      "weight": 3
+    },
+    {
+      "word": "秘密にして",
+      "category": "secrecy",
+      "weight": 3
+    },
+    {
+      "word": "黙っていて",
+      "category": "secrecy",
+      "weight": 3
+    },
+    {
+      "word": "家族に言わないで",
+      "category": "secrecy",
+      "weight": 3
+    },
+    {
+      "word": "警察に言わないで",
+      "category": "secrecy",
+      "weight": 3
+    },
+    {
+      "word": "言わないでほしい",
+      "category": "secrecy",
+      "weight": 3
+    },
+    {
+      "word": "暗証番号",
+      "category": "money",
+      "weight": 3
+    },
+    {
+      "word": "キャッシュカード",
+      "category": "money",
+      "weight": 3
+    },
+    {
+      "word": "カードを預か",
+      "category": "money",
+      "weight": 3
+    },
+    {
+      "word": "電子マネー",
+      "category": "money",
+      "weight": 3
+    },
+    {
+      "word": "ギフトカード",
+      "category": "money",
+      "weight": 3
+    },
+    {
+      "word": "プリペイドカード",
+      "category": "money",
+      "weight": 3
+    },
+    {
+      "word": "コンビニで支払",
+      "category": "money",
+      "weight": 3
+    },
+    {
+      "word": "コンビニで購入",
+      "category": "money",
+      "weight": 3
+    },
+    {
+      "word": "用立て",
+      "category": "money",
+      "weight": 3
+    },
+    {
+      "word": "立て替え",
+      "category": "money",
+      "weight": 2
+    },
+    {
+      "word": "肩代わり",
+      "category": "money",
+      "weight": 3
+    },
+    {
+      "word": "現金を用意",
+      "category": "money",
+      "weight": 3
+    },
+    {
+      "word": "お金を用意",
+      "category": "money",
+      "weight": 3
+    },
+    {
+      "word": "金を用意",
+      "category": "money",
+      "weight": 3
+    },
+    {
+      "word": "送金",
+      "category": "money",
+      "weight": 2
+    },
+    {
+      "word": "口座に振り込",
+      "category": "money",
+      "weight": 2
+    },
+    {
+      "word": "口座番号",
+      "category": "money",
+      "weight": 2
+    },
+    {
+      "word": "お金",
+      "category": "money",
+      "weight": 1
+    },
+    {
+      "word": "現金",
+      "category": "money",
+      "weight": 1
+    },
+    {
+      "word": "振込",
+      "category": "money",
+      "weight": 1
+    },
+    {
+      "word": "振り込み",
+      "category": "money",
+      "weight": 1
+    },
+    {
+      "word": "入金",
+      "category": "money",
+      "weight": 1
+    },
+    {
+      "word": "今すぐ",
+      "category": "urgency",
+      "weight": 2
+    },
+    {
+      "word": "いますぐ",
+      "category": "urgency",
+      "weight": 2
+    },
+    {
+      "word": "大至急",
+      "category": "urgency",
+      "weight": 3
+    },
+    {
+      "word": "至急",
+      "category": "urgency",
+      "weight": 2
+    },
+    {
+      "word": "今日中",
+      "category": "urgency",
+      "weight": 2
+    },
+    {
+      "word": "本日中",
+      "category": "urgency",
+      "weight": 2
+    },
+    {
+      "word": "今日まで",
+      "category": "urgency",
+      "weight": 2
+    },
+    {
+      "word": "期限が迫",
+      "category": "urgency",
+      "weight": 2
+    },
+    {
+      "word": "締め切り",
+      "category": "urgency",
+      "weight": 1
+    },
+    {
+      "word": "急いで",
+      "category": "urgency",
+      "weight": 2
+    },
+    {
+      "word": "24時間以内",
+      "category": "urgency",
+      "weight": 2
+    },
+    {
+      "word": "２４時間以内",
+      "category": "urgency",
+      "weight": 2
+    },
+    {
+      "word": "まもなく停止",
+      "category": "urgency",
+      "weight": 2
+    },
+    {
+      "word": "折り返し",
+      "category": "callback",
+      "weight": 2
+    },
+    {
+      "word": "折返し",
+      "category": "callback",
+      "weight": 2
+    },
+    {
+      "word": "かけ直して",
+      "category": "callback",
+      "weight": 2
+    },
+    {
+      "word": "かけなおして",
+      "category": "callback",
+      "weight": 2
+    },
+    {
+      "word": "この番号に電話",
+      "category": "callback",
+      "weight": 3
+    },
+    {
+      "word": "下記の番号",
+      "category": "callback",
+      "weight": 2
+    },
+    {
+      "word": "記載の番号",
+      "category": "callback",
+      "weight": 2
+    },
+    {
+      "word": "すぐに連絡",
+      "category": "callback",
+      "weight": 2
+    },
+    {
+      "word": "至急連絡",
+      "category": "callback",
+      "weight": 2
+    },
+    {
+      "word": "必ず連絡",
+      "category": "callback",
+      "weight": 2
+    },
+    {
+      "word": "大変なことになる",
+      "category": "trouble",
+      "weight": 2
+    },
+    {
+      "word": "クビになる",
+      "category": "trouble",
+      "weight": 2
+    },
+    {
+      "word": "首になる",
+      "category": "trouble",
+      "weight": 2
+    },
+    {
+      "word": "会社のお金",
+      "category": "trouble",
+      "weight": 3
+    },
+    {
+      "word": "会社の金",
+      "category": "trouble",
+      "weight": 3
+    },
+    {
+      "word": "書類をなくし",
+      "category": "trouble",
+      "weight": 2
+    },
+    {
+      "word": "書類を無くし",
+      "category": "trouble",
+      "weight": 2
+    },
+    {
+      "word": "失くしてしまった",
+      "category": "trouble",
+      "weight": 2
+    },
+    {
+      "word": "事故を起こし",
+      "category": "trouble",
+      "weight": 2
+    },
+    {
+      "word": "示談",
+      "category": "trouble",
+      "weight": 3
+    },
+    {
+      "word": "妊娠させ",
+      "category": "trouble",
+      "weight": 3
+    },
+    {
+      "word": "借金",
+      "category": "trouble",
+      "weight": 2
+    },
+    {
+      "word": "迷惑をかけ",
+      "category": "trouble",
+      "weight": 1
+    },
+    {
+      "word": "責任を取ら",
+      "category": "trouble",
+      "weight": 2
+    },
+    {
+      "word": "助けてほしい",
+      "category": "trouble",
+      "weight": 2
+    },
+    {
+      "word": "どうにかして",
+      "category": "trouble",
+      "weight": 1
+    },
+    {
+      "word": "警察署",
+      "category": "authority",
+      "weight": 2
+    },
+    {
+      "word": "警察官",
+      "category": "authority",
+      "weight": 2
+    },
+    {
+      "word": "検察",
+      "category": "authority",
+      "weight": 3
+    },
+    {
+      "word": "弁護士",
+      "category": "authority",
+      "weight": 2
+    },
+    {
+      "word": "金融庁",
+      "category": "authority",
+      "weight": 3
+    },
+    {
+      "word": "税務署",
+      "category": "authority",
+      "weight": 2
+    },
+    {
+      "word": "年金機構",
+      "category": "authority",
+      "weight": 2
+    },
+    {
+      "word": "裁判所",
+      "category": "authority",
+      "weight": 2
+    },
+    {
+      "word": "債権回収",
+      "category": "authority",
+      "weight": 3
+    },
+    {
+      "word": "法務省",
+      "category": "authority",
+      "weight": 3
+    },
+    {
+      "word": "消費者センター",
+      "category": "authority",
+      "weight": 2
+    },
+    {
+      "word": "未納",
+      "category": "account",
+      "weight": 2
+    },
+    {
+      "word": "利用停止",
+      "category": "account",
+      "weight": 2
+    },
+    {
+      "word": "料金が確認できません",
+      "category": "account",
+      "weight": 2
+    },
+    {
+      "word": "お荷物のお届け",
+      "category": "account",
+      "weight": 2
+    },
+    {
+      "word": "ご不在",
+      "category": "account",
+      "weight": 1
+    },
+    {
+      "word": "アカウントが凍結",
+      "category": "account",
+      "weight": 3
+    },
+    {
+      "word": "本人確認",
+      "category": "account",
+      "weight": 1
+    },
+    {
+      "word": "法的手続",
+      "category": "account",
+      "weight": 3
+    },
+    {
+      "word": "支払期限",
+      "category": "account",
+      "weight": 2
+    },
+    {
+      "word": "還付金",
+      "category": "account",
+      "weight": 3
+    },
+    {
+      "word": "アカウントを停止",
+      "category": "account",
+      "weight": 3
+    },
+    {
+      "word": "利用制限",
+      "category": "account",
+      "weight": 2
+    },
+    {
+      "word": "再開するには",
+      "category": "account",
+      "weight": 2
+    }
+  ]
 }

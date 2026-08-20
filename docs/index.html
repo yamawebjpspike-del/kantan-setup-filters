@@ -1,12 +1,62 @@
 <!DOCTYPE html>
 <html lang="ja">
+<head>
 <meta charset="utf-8">
-<title>kantan-setup-filters</title>
-<h1>kantan-setup-filters</h1>
-<p>Safari content blocker rules converted from EasyList.</p>
-<p>Source: The EasyList authors (https://easylist.to/)</p>
-<p>Licensed under CC BY-SA 3.0.</p>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>スマホかんたんセットアップ</title>
+<style>
+:root { color-scheme: light dark; --fg:#1c1c1e; --dim:#6b6b70; --bg:#f2f2f7;
+        --card:#ffffff; --line:#d8d8dd; --accent:#0a63d6; }
+@media (prefers-color-scheme: dark) {
+  :root { --fg:#f2f2f7; --dim:#a0a0a8; --bg:#000000;
+          --card:#1c1c1e; --line:#3a3a3e; --accent:#5aa2ff; }
+}
+* { box-sizing: border-box; }
+body { margin:0; padding:24px 16px 72px; background:var(--bg); color:var(--fg);
+       font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;
+       font-size:18px; line-height:1.9; }
+main { max-width:38em; margin:0 auto; background:var(--card);
+       border-radius:18px; padding:28px 24px; }
+h1 { font-size:1.7em; line-height:1.4; margin:0 0 8px; }
+h2 { font-size:1.2em; margin:32px 0 8px; padding-top:16px; border-top:1px solid var(--line); }
+p, li { margin:10px 0; }
+ul { padding-left:1.4em; }
+a { color:var(--accent); }
+.lead { color:var(--dim); margin-bottom:24px; }
+footer { max-width:38em; margin:24px auto 0; color:var(--dim); font-size:0.9em; }
+code { background:var(--bg); padding:2px 6px; border-radius:6px; font-size:0.9em; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>スマホかんたんセットアップ</h1>
+<p class="lead">ご家族の iPhone を、いっしょに整えるためのアプリです。</p>
+
+<h2>決まりごと</h2>
 <ul>
-<li><a href="config.json">config.json</a></li>
-<li><a href="blocklist.json">blocklist.json</a></li>
+<li><a href="privacy.html">プライバシーポリシー</a></li>
+<li><a href="terms.html">利用規約</a></li>
+<li><a href="licenses.html">ライセンス表示</a></li>
 </ul>
+
+<h2>広告ブロックのルール</h2>
+<p>
+アプリの広告ブロックが使うルールを、ここで配信しています。
+毎週月曜に <a href="https://easylist.to/">EasyList / EasyPrivacy</a> の最新版から作り直しています。
+</p>
+<ul>
+<li><a href="blocklist.json">blocklist.json</a> — ルール本体</li>
+<li><a href="config.json">config.json</a> — アプリの案内文と配信設定</li>
+</ul>
+<p>
+ルールは <strong>The EasyList authors</strong>（<a href="https://easylist.to/">easylist.to</a>）の
+著作物をもとにしており、<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>
+のもとで配布しています。作り方は
+<a href="https://github.com/yamawebjpspike-del/kantan-setup-filters">リポジトリ</a>をご覧ください。
+</p>
+
+</main>
+<footer>スマホかんたんセットアップ</footer>
+</body>
+</html>

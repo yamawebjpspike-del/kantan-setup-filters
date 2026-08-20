@@ -27,28 +27,49 @@ A GitHub Actions workflow runs every Monday:
 2. Converts Adblock Plus syntax to Safari content-blocking JSON
 3. Drops rules Safari cannot express (scriptlets, `$removeparam`, `$csp`,
    procedural cosmetic filters, and so on)
-4. Trims the result to at most **30,000 rules**
+4. Trims the result to at most **120,000 rules**
 5. Validates the output (JSON shape, regex validity, rule ordering)
 6. Publishes to GitHub Pages
 
-## Why only 30,000 rules?
+The current output is about **115,000 rules**: roughly 108,000 `block`,
+5,300 `css-display-none`, and 1,400 `ignore-previous-rules`.
 
-Apple documents a limit of 150,000 rules per content blocker, but in practice
-loading fails well below that on older devices — there are reports of failures
-from around 45,000 rules on an iPhone 12 running iOS 18, and AdGuard had to
-shrink its rule sets after iOS 17. The target users of the app are often on
-older iPhones, so this project stays conservative.
+## Why 120,000 rules?
 
-## Why no cosmetic filters?
+Apple documents a limit of 150,000 rules per content blocker. This project
+started at 30,000 because loading was reported to fail well below Apple's limit
+on older devices, but that turned out to be far too conservative: measured on an
+iPad (A16, iPadOS 27), 115,000 rules load and run smoothly, and blocking went
+from roughly 7% to 64% on the same test pages. The headroom below Apple's limit
+is kept deliberately, because the failure mode is the whole list silently not
+loading.
 
-Cosmetic filters (`##selector`) consume a large share of the rule budget and
-are the main source of visual breakage. The app's users generally cannot
-diagnose why a page looks wrong, so this project blocks network requests only.
+If a device is found where loading fails, lower `--limit` rather than dropping
+whole source lists — the trim keeps the highest-value rules first.
+
+## Cosmetic filters
+
+Cosmetic filters (`##selector`) are converted to `css-display-none` actions and
+are **included**, capped so they cannot crowd out network rules. They are what
+removes the leftover empty boxes after a network request is blocked.
+
+Procedural cosmetic filters (`:has-text()`, `:xpath()` and friends) are still
+dropped — Safari cannot express them.
 
 ## Published URLs
 
+Rules and app config:
+
 - https://yamawebjpspike-del.github.io/kantan-setup-filters/blocklist.json
 - https://yamawebjpspike-del.github.io/kantan-setup-filters/config.json
+
+The app's legal documents are published from the same GitHub Pages site. They
+are **generated from the app repository** by `Tools/publish_legal.py`; do not
+edit the HTML here by hand.
+
+- https://yamawebjpspike-del.github.io/kantan-setup-filters/privacy.html
+- https://yamawebjpspike-del.github.io/kantan-setup-filters/terms.html
+- https://yamawebjpspike-del.github.io/kantan-setup-filters/licenses.html
 
 ## Running locally
 
@@ -63,5 +84,5 @@ Options:
 | `--url` | Source filter list URL |
 | `--input` | Read a local file instead of downloading (for testing) |
 | `--output` | Output path |
-| `--limit` | Maximum number of rules (default 30000) |
+| `--limit` | Maximum number of rules (default 120000) |
 | `--min-rules` | Fail if fewer rules than this are produced |

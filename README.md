@@ -39,8 +39,9 @@ The current output is about **115,000 rules**: roughly 108,000 `block`,
 Apple documents a limit of 150,000 rules per content blocker. This project
 started at 30,000 because loading was reported to fail well below Apple's limit
 on older devices, but that turned out to be far too conservative: measured on an
-iPad (A16, iPadOS 27), 115,000 rules load and run smoothly, and blocking went
-from roughly 7% to 64% on the same test pages. The headroom below Apple's limit
+**iPad (10th generation, A14, iPadOS 27)** — a low-end device by current
+standards — 115,000 rules load and run smoothly, and blocking went from roughly
+7% to 64% on the same test pages. The headroom below Apple's limit
 is kept deliberately, because the failure mode is the whole list silently not
 loading.
 

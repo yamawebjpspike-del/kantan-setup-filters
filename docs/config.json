@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-21",
+  "updatedAt": "2026-08-22",
   "blocklist": {
     "url": "https://yamawebjpspike-del.github.io/kantan-setup-filters/blocklist.json",
     "version": "2026-08-19",
@@ -258,7 +258,7 @@
         },
         {
           "screen": "機能拡張",
-          "tap": "かんたん設定",
+          "tap": "スマホかんたんセットアップ",
           "toggle": true
         }
       ],
@@ -267,7 +267,7 @@
         "「アプリ」を えらびます",
         "「Safari」を えらびます",
         "「機能拡張」を えらびます",
-        "「かんたん設定」を 押して 入に します"
+        "「スマホかんたんセットアップ」を 押して 入に します"
       ],
       "note": "ページの 表示が おかしく なった ときは、Siri に「広告ブロックを 止めて」と 話しかけると、30 分だけ 止まります。"
     },

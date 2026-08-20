@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-24",
+  "updatedAt": "2026-08-25",
   "blocklist": {
     "url": "https://yamawebjpspike-del.github.io/kantan-setup-filters/blocklist.json",
     "version": "2026-08-19",
@@ -847,6 +847,381 @@
       "word": "消費者センター",
       "category": "authority",
       "weight": 2
+    },
+    {
+      "word": "このメッセージは安全",
+      "category": "selfVouch",
+      "weight": 3
+    },
+    {
+      "word": "安全なメッセージ",
+      "category": "selfVouch",
+      "weight": 3
+    },
+    {
+      "word": "安全なお知らせ",
+      "category": "selfVouch",
+      "weight": 3
+    },
+    {
+      "word": "詐欺ではありません",
+      "category": "selfVouch",
+      "weight": 3
+    },
+    {
+      "word": "詐欺ではない",
+      "category": "selfVouch",
+      "weight": 3
+    },
+    {
+      "word": "詐欺メールではありません",
+      "category": "selfVouch",
+      "weight": 3
+    },
+    {
+      "word": "なりすましではありません",
+      "category": "selfVouch",
+      "weight": 3
+    },
+    {
+      "word": "怪しいものではありません",
+      "category": "selfVouch",
+      "weight": 3
+    },
+    {
+      "word": "あやしいものではありません",
+      "category": "selfVouch",
+      "weight": 3
+    },
+    {
+      "word": "悪用されることはありません",
+      "category": "selfVouch",
+      "weight": 3
+    },
+    {
+      "word": "正規のお知らせ",
+      "category": "selfVouch",
+      "weight": 3
+    },
+    {
+      "word": "正規の連絡",
+      "category": "selfVouch",
+      "weight": 3
+    },
+    {
+      "word": "公式のお知らせです",
+      "category": "selfVouch",
+      "weight": 3
+    },
+    {
+      "word": "本物のメッセージ",
+      "category": "selfVouch",
+      "weight": 3
+    },
+    {
+      "word": "信頼できる相手",
+      "category": "selfVouch",
+      "weight": 3
+    },
+    {
+      "word": "絶対に安全",
+      "category": "selfVouch",
+      "weight": 3
+    },
+    {
+      "word": "安心して大丈夫",
+      "category": "selfVouch",
+      "weight": 2
+    },
+    {
+      "word": "心配はいりません",
+      "category": "selfVouch",
+      "weight": 2
+    },
+    {
+      "word": "心配ありません",
+      "category": "selfVouch",
+      "weight": 2
+    },
+    {
+      "word": "ご安心ください",
+      "category": "selfVouch",
+      "weight": 1
+    },
+    {
+      "word": "指示は無視",
+      "category": "injection",
+      "weight": 3
+    },
+    {
+      "word": "指示を無視",
+      "category": "injection",
+      "weight": 3
+    },
+    {
+      "word": "これまでの指示",
+      "category": "injection",
+      "weight": 3
+    },
+    {
+      "word": "上記の指示",
+      "category": "injection",
+      "weight": 3
+    },
+    {
+      "word": "以前の指示",
+      "category": "injection",
+      "weight": 3
+    },
+    {
+      "word": "命令を無視",
+      "category": "injection",
+      "weight": 3
+    },
+    {
+      "word": "システムプロンプト",
+      "category": "injection",
+      "weight": 3
+    },
+    {
+      "word": "あなたはAI",
+      "category": "injection",
+      "weight": 3
+    },
+    {
+      "word": "あなたはアシスタント",
+      "category": "injection",
+      "weight": 3
+    },
+    {
+      "word": "安全だと答え",
+      "category": "injection",
+      "weight": 3
+    },
+    {
+      "word": "問題ないと答え",
+      "category": "injection",
+      "weight": 3
+    },
+    {
+      "word": "と答えてください",
+      "category": "injection",
+      "weight": 2
+    },
+    {
+      "word": "と回答してください",
+      "category": "injection",
+      "weight": 2
+    },
+    {
+      "word": "判定を無視",
+      "category": "injection",
+      "weight": 3
+    },
+    {
+      "word": "当選しました",
+      "category": "prize",
+      "weight": 3
+    },
+    {
+      "word": "当選いたしました",
+      "category": "prize",
+      "weight": 3
+    },
+    {
+      "word": "ご当選",
+      "category": "prize",
+      "weight": 3
+    },
+    {
+      "word": "抽選で選ばれ",
+      "category": "prize",
+      "weight": 3
+    },
+    {
+      "word": "高額報酬",
+      "category": "prize",
+      "weight": 3
+    },
+    {
+      "word": "必ず儲かる",
+      "category": "prize",
+      "weight": 3
+    },
+    {
+      "word": "元本保証",
+      "category": "prize",
+      "weight": 3
+    },
+    {
+      "word": "確実に増える",
+      "category": "prize",
+      "weight": 3
+    },
+    {
+      "word": "絶対に儲か",
+      "category": "prize",
+      "weight": 3
+    },
+    {
+      "word": "簡単に稼げ",
+      "category": "prize",
+      "weight": 3
+    },
+    {
+      "word": "誰でも稼げ",
+      "category": "prize",
+      "weight": 3
+    },
+    {
+      "word": "すぐに稼げ",
+      "category": "prize",
+      "weight": 3
+    },
+    {
+      "word": "未公開株",
+      "category": "prize",
+      "weight": 3
+    },
+    {
+      "word": "特別なご案内",
+      "category": "prize",
+      "weight": 2
+    },
+    {
+      "word": "副業",
+      "category": "prize",
+      "weight": 2
+    },
+    {
+      "word": "投資のお誘い",
+      "category": "prize",
+      "weight": 2
+    },
+    {
+      "word": "月収",
+      "category": "prize",
+      "weight": 1
+    },
+    {
+      "word": "無料でもらえ",
+      "category": "prize",
+      "weight": 2
+    },
+    {
+      "word": "ウイルスに感染",
+      "category": "virus",
+      "weight": 3
+    },
+    {
+      "word": "ウィルスに感染",
+      "category": "virus",
+      "weight": 3
+    },
+    {
+      "word": "ウイルスが検出",
+      "category": "virus",
+      "weight": 3
+    },
+    {
+      "word": "感染しています",
+      "category": "virus",
+      "weight": 3
+    },
+    {
+      "word": "遠隔操作",
+      "category": "virus",
+      "weight": 3
+    },
+    {
+      "word": "遠隔サポート",
+      "category": "virus",
+      "weight": 3
+    },
+    {
+      "word": "システムが破損",
+      "category": "virus",
+      "weight": 3
+    },
+    {
+      "word": "直ちに電話",
+      "category": "virus",
+      "weight": 3
+    },
+    {
+      "word": "サポート窓口までお電話",
+      "category": "virus",
+      "weight": 3
+    },
+    {
+      "word": "マイクロソフトのサポート",
+      "category": "virus",
+      "weight": 3
+    },
+    {
+      "word": "警告音",
+      "category": "virus",
+      "weight": 2
+    },
+    {
+      "word": "スキャンの結果",
+      "category": "virus",
+      "weight": 2
+    },
+    {
+      "word": "二段階認証を解除",
+      "category": "credential",
+      "weight": 3
+    },
+    {
+      "word": "認証を解除",
+      "category": "credential",
+      "weight": 3
+    },
+    {
+      "word": "パスワードを教え",
+      "category": "credential",
+      "weight": 3
+    },
+    {
+      "word": "暗証番号を教え",
+      "category": "credential",
+      "weight": 3
+    },
+    {
+      "word": "パスワードを入力",
+      "category": "credential",
+      "weight": 2
+    },
+    {
+      "word": "パスワードを再設定",
+      "category": "credential",
+      "weight": 2
+    },
+    {
+      "word": "ログイン情報",
+      "category": "credential",
+      "weight": 2
+    },
+    {
+      "word": "本人確認のため入力",
+      "category": "credential",
+      "weight": 2
+    },
+    {
+      "word": "セキュリティコード",
+      "category": "credential",
+      "weight": 1
+    },
+    {
+      "word": "認証コード",
+      "category": "credential",
+      "weight": 1
+    },
+    {
+      "word": "ワンタイムパスワード",
+      "category": "credential",
+      "weight": 1
     },
     {
       "word": "未納",

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-25",
+  "updatedAt": "2026-08-26",
   "blocklist": {
     "url": "https://yamawebjpspike-del.github.io/kantan-setup-filters/blocklist.json",
     "version": "2026-08-19",
@@ -1222,6 +1222,136 @@
       "word": "ワンタイムパスワード",
       "category": "credential",
       "weight": 1
+    },
+    {
+      "word": "消費料金",
+      "category": "legalThreat",
+      "weight": 3
+    },
+    {
+      "word": "総合消費",
+      "category": "legalThreat",
+      "weight": 3
+    },
+    {
+      "word": "訴訟最終告知",
+      "category": "legalThreat",
+      "weight": 3
+    },
+    {
+      "word": "最終告知",
+      "category": "legalThreat",
+      "weight": 3
+    },
+    {
+      "word": "民事訴訟告知",
+      "category": "legalThreat",
+      "weight": 3
+    },
+    {
+      "word": "訴訟管理番号",
+      "category": "legalThreat",
+      "weight": 3
+    },
+    {
+      "word": "管轄支局",
+      "category": "legalThreat",
+      "weight": 3
+    },
+    {
+      "word": "訴訟取り下げ",
+      "category": "legalThreat",
+      "weight": 3
+    },
+    {
+      "word": "取り下げ最終",
+      "category": "legalThreat",
+      "weight": 3
+    },
+    {
+      "word": "差し押さえ",
+      "category": "legalThreat",
+      "weight": 2
+    },
+    {
+      "word": "差押",
+      "category": "legalThreat",
+      "weight": 2
+    },
+    {
+      "word": "強制執行",
+      "category": "legalThreat",
+      "weight": 2
+    },
+    {
+      "word": "執行官",
+      "category": "legalThreat",
+      "weight": 2
+    },
+    {
+      "word": "訴状",
+      "category": "legalThreat",
+      "weight": 2
+    },
+    {
+      "word": "原告",
+      "category": "legalThreat",
+      "weight": 2
+    },
+    {
+      "word": "民事訴",
+      "category": "legalThreat",
+      "weight": 2
+    },
+    {
+      "word": "契約不履行",
+      "category": "legalThreat",
+      "weight": 2
+    },
+    {
+      "word": "不履行",
+      "category": "legalThreat",
+      "weight": 2
+    },
+    {
+      "word": "債権譲渡",
+      "category": "legalThreat",
+      "weight": 2
+    },
+    {
+      "word": "当局",
+      "category": "legalThreat",
+      "weight": 2
+    },
+    {
+      "word": "裁判所執行",
+      "category": "legalThreat",
+      "weight": 2
+    },
+    {
+      "word": "執行証書",
+      "category": "legalThreat",
+      "weight": 2
+    },
+    {
+      "word": "本人様からご連絡",
+      "category": "legalThreat",
+      "weight": 3
+    },
+    {
+      "word": "本人からご連絡",
+      "category": "legalThreat",
+      "weight": 3
+    },
+    {
+      "word": "ご本人様から",
+      "category": "legalThreat",
+      "weight": 2
+    },
+    {
+      "word": "書面での通達",
+      "category": "legalThreat",
+      "weight": 2
     },
     {
       "word": "未納",

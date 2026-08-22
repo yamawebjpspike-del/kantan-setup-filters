@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-26",
+  "updatedAt": "2026-08-27",
   "blocklist": {
     "url": "https://yamawebjpspike-del.github.io/kantan-setup-filters/blocklist.json",
     "version": "2026-08-19",
@@ -92,7 +92,7 @@
       "priority": 1,
       "source": "祖父母からの要望（2026-08-17）",
       "canAutomate": false,
-      "demoLessonID": "control-center",
+      "demoLessonID": "control-center-edit",
       "note": "コントロールセンターとは、画面の 右上の はしから 下へ すべらせると 出てくる 画面の ことです。明るさ・音量・ライトなどを すぐに 変えられます。ここに 並ぶ ボタンが 多いと 何ページにも なり、目当ての ものを さがすことに なります。使わない ものを 消すと さがさずに 済みます。",
       "impossibleNote": "昔の iPhone のように「1 ページだけ」に 戻す 設定は ありません。ただし 使わない ものを 消していけば、実際に 1 ページに おさまります。",
       "steps": [

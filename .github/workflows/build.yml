@@ -69,3 +69,32 @@ jobs:
             git commit -m "Update blocklist ($(date -u +%Y-%m-%d))"
             git push
           fi
+
+      # ■ 定期実行を 止められないように する
+      #
+      # GitHub は、しばらく 動きの 無い リポジトリの 定期実行を 止める。
+      # 公開リポジトリでは 60 日と 決まって いる。
+      # 非公開でも 同じかは 書き方が 揺れて いて はっきり しない。
+      #
+      # **止まっても 誰も 気づけない。**
+      # 規則の 読み方に 頼らず、こちらから 動きを 作って おく。
+      #
+      # ふだんは 何も しない。45 日 何も 起きて いない ときだけ、
+      # 小さな 印を 1 つ 残す。年に 8 回ほど。
+      - name: 眠らせない
+        run: |
+          last=$(git log -1 --format=%ct)
+          now=$(date -u +%s)
+          days=$(( (now - last) / 86400 ))
+          echo "最後の変更から ${days} 日"
+          if [ "$days" -lt 45 ]; then
+            echo "まだ動きがあるので、何もしません。"
+            exit 0
+          fi
+          mkdir -p .github
+          date -u +"最後に見に行った日: %Y-%m-%d" > .github/last-checked.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/last-checked.txt
+          git commit -m "定期実行を止められないための印 $(date -u +%Y-%m-%d)"
+          git push

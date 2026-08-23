@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-27",
+  "updatedAt": "2026-08-31",
   "blocklist": {
     "url": "https://yamawebjpspike-del.github.io/kantan-setup-filters/blocklist.json",
     "version": "2026-08-19",
@@ -41,7 +41,7 @@
       "source": "祖父母からの要望（2026-08-17）",
       "canAutomate": false,
       "demoLessonID": "back-swipe",
-      "impossibleNote": "アプリの「戻る」矢印を 大きくしたり、目立たせたり することは できません。ほかの アプリの 見た目は 変えられない、という iPhone の きまりが あるためです。",
+      "impossibleNote": "アプリの「戻る」矢印を 大きくしたり、目立たせたり することは できません。ほかの アプリの 見た目は 変えられない、という {端末} の きまりが あるためです。",
       "steps": [
         "指を 画面の 左はしに 置きます",
         "そのまま 右へ すべらせます",
@@ -94,7 +94,7 @@
       "canAutomate": false,
       "demoLessonID": "control-center-edit",
       "note": "コントロールセンターとは、画面の 右上の はしから 下へ すべらせると 出てくる 画面の ことです。明るさ・音量・ライトなどを すぐに 変えられます。ここに 並ぶ ボタンが 多いと 何ページにも なり、目当ての ものを さがすことに なります。使わない ものを 消すと さがさずに 済みます。",
-      "impossibleNote": "昔の iPhone のように「1 ページだけ」に 戻す 設定は ありません。ただし 使わない ものを 消していけば、実際に 1 ページに おさまります。",
+      "impossibleNote": "昔の {端末} のように「1 ページだけ」に 戻す 設定は ありません。ただし 使わない ものを 消していけば、実際に 1 ページに おさまります。",
       "steps": [
         "画面の 右上の はしから 下へ すべらせて、コントロールセンターを 出します",
         "ボタンの ない ところを 指で 長く 押します",
@@ -1034,54 +1034,34 @@
       "weight": 3
     },
     {
+      "word": "当選され",
+      "category": "prize",
+      "weight": 3
+    },
+    {
+      "word": "当選者に選ばれ",
+      "category": "prize",
+      "weight": 3
+    },
+    {
+      "word": "見事当選",
+      "category": "prize",
+      "weight": 3
+    },
+    {
       "word": "抽選で選ばれ",
       "category": "prize",
       "weight": 3
     },
     {
-      "word": "高額報酬",
+      "word": "特別に選ばれ",
       "category": "prize",
-      "weight": 3
+      "weight": 2
     },
     {
-      "word": "必ず儲かる",
+      "word": "選ばれました",
       "category": "prize",
-      "weight": 3
-    },
-    {
-      "word": "元本保証",
-      "category": "prize",
-      "weight": 3
-    },
-    {
-      "word": "確実に増える",
-      "category": "prize",
-      "weight": 3
-    },
-    {
-      "word": "絶対に儲か",
-      "category": "prize",
-      "weight": 3
-    },
-    {
-      "word": "簡単に稼げ",
-      "category": "prize",
-      "weight": 3
-    },
-    {
-      "word": "誰でも稼げ",
-      "category": "prize",
-      "weight": 3
-    },
-    {
-      "word": "すぐに稼げ",
-      "category": "prize",
-      "weight": 3
-    },
-    {
-      "word": "未公開株",
-      "category": "prize",
-      "weight": 3
+      "weight": 2
     },
     {
       "word": "特別なご案内",
@@ -1089,24 +1069,194 @@
       "weight": 2
     },
     {
-      "word": "副業",
+      "word": "特別オファー",
       "category": "prize",
       "weight": 2
     },
     {
-      "word": "投資のお誘い",
+      "word": "特別価格",
       "category": "prize",
       "weight": 2
     },
     {
-      "word": "月収",
+      "word": "特典が受け取れ",
+      "category": "prize",
+      "weight": 2
+    },
+    {
+      "word": "プレゼントが当たり",
+      "category": "prize",
+      "weight": 3
+    },
+    {
+      "word": "賞金",
+      "category": "prize",
+      "weight": 2
+    },
+    {
+      "word": "キャッシュバック",
+      "category": "prize",
+      "weight": 2
+    },
+    {
+      "word": "ポイントが付与され",
+      "category": "prize",
+      "weight": 2
+    },
+    {
+      "word": "ポイントの有効期限",
       "category": "prize",
       "weight": 1
+    },
+    {
+      "word": "無料で受け取れ",
+      "category": "prize",
+      "weight": 2
+    },
+    {
+      "word": "受け取り手続き",
+      "category": "prize",
+      "weight": 2
+    },
+    {
+      "word": "受取期限",
+      "category": "prize",
+      "weight": 2
+    },
+    {
+      "word": "限定キャンペーン",
+      "category": "prize",
+      "weight": 2
+    },
+    {
+      "word": "特別キャンペーン",
+      "category": "prize",
+      "weight": 2
     },
     {
       "word": "無料でもらえ",
       "category": "prize",
       "weight": 2
+    },
+    {
+      "word": "今なら無料",
+      "category": "prize",
+      "weight": 2
+    },
+    {
+      "word": "おめでとうございます",
+      "category": "prize",
+      "weight": 1
+    },
+    {
+      "word": "おめでとう御座います",
+      "category": "prize",
+      "weight": 1
+    },
+    {
+      "word": "今だけ",
+      "category": "prize",
+      "weight": 2
+    },
+    {
+      "word": "本日限り",
+      "category": "prize",
+      "weight": 2
+    },
+    {
+      "word": "先着",
+      "category": "prize",
+      "weight": 2
+    },
+    {
+      "word": "期間限定",
+      "category": "prize",
+      "weight": 1
+    },
+    {
+      "word": "いまだけ",
+      "category": "prize",
+      "weight": 2
+    },
+    {
+      "word": "元本保証",
+      "category": "moneyMaking",
+      "weight": 3
+    },
+    {
+      "word": "必ず儲かる",
+      "category": "moneyMaking",
+      "weight": 3
+    },
+    {
+      "word": "絶対に儲か",
+      "category": "moneyMaking",
+      "weight": 3
+    },
+    {
+      "word": "確実に増える",
+      "category": "moneyMaking",
+      "weight": 3
+    },
+    {
+      "word": "確実に儲か",
+      "category": "moneyMaking",
+      "weight": 3
+    },
+    {
+      "word": "高額報酬",
+      "category": "moneyMaking",
+      "weight": 3
+    },
+    {
+      "word": "未公開株",
+      "category": "moneyMaking",
+      "weight": 3
+    },
+    {
+      "word": "簡単に稼げ",
+      "category": "moneyMaking",
+      "weight": 3
+    },
+    {
+      "word": "誰でも稼げ",
+      "category": "moneyMaking",
+      "weight": 3
+    },
+    {
+      "word": "すぐに稼げ",
+      "category": "moneyMaking",
+      "weight": 3
+    },
+    {
+      "word": "必ず利益",
+      "category": "moneyMaking",
+      "weight": 3
+    },
+    {
+      "word": "損はさせません",
+      "category": "moneyMaking",
+      "weight": 3
+    },
+    {
+      "word": "リスクなし",
+      "category": "moneyMaking",
+      "weight": 3
+    },
+    {
+      "word": "投資のお誘い",
+      "category": "moneyMaking",
+      "weight": 2
+    },
+    {
+      "word": "副業",
+      "category": "moneyMaking",
+      "weight": 2
+    },
+    {
+      "word": "月収",
+      "category": "moneyMaking",
+      "weight": 1
     },
     {
       "word": "ウイルスに感染",
@@ -1418,5 +1568,10 @@
       "category": "account",
       "weight": 2
     }
-  ]
+  ],
+  "appStore": {
+    "note": "App Store Connect に登録したあとに埋めること。空のあいだは『評価を書く』の項目を出さない。",
+    "url": "",
+    "reviewURL": ""
+  }
 }

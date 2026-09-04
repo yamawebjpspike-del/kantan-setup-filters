@@ -34,8 +34,8 @@ A GitHub Actions workflow runs every Monday:
 5. Validates the output (JSON shape, regex validity, rule ordering)
 6. Publishes to GitHub Pages
 
-The output shipped with the app is **114,718 rules**: 109,418 `block`
-(including `ignore-previous-rules`) and 5,300 `css-display-none`.
+The output shipped with the app is **116,989 rules** (built 2026-08-31):
+110,250 `block`, 1,425 `ignore-previous-rules` and 5,314 `css-display-none`.
 The exact counts are recorded in the app's `blocklist_meta.json`, generated at
 build time so the app never has to read the 13.9 MB list just to show a number.
 

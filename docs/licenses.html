@@ -81,12 +81,13 @@ code { background:var(--bg); padding:2px 6px; border-radius:6px; font-size:0.9em
 <p>総務省が 公表して いる 市外局番の 一覧を 使用して います。</p>
 <p>出典：総務省ホームページ 市外局番の一覧</p>
 <p><a href="https://www.soumu.go.jp/main_sosiki/joho_tsusin/top/tel_number/shigai_list.html">https://www.soumu.go.jp/main_sosiki/joho_tsusin/top/tel_number/shigai_list.html</a></p>
-<p>（2026-03-01 現在の 一覧を、2026-08-22 に 利用）</p>
+<p>（2026-03-01 現在の 一覧を、2026-09-04 に 利用）</p>
 <p>同じく「公共データ利用規約（第1.0版）」に 準拠して います。</p>
 <h3>加えた変更</h3>
 <ul>
-<li>Word 形式の 一覧から、市外局番・市内局番の 桁数・都道府県名 だけを 抜き出し、JSON 形式へ変換</li>
-<li>番号区画（市区町村の 一覧）は 取り込まず、都道府県名のみを 残した</li>
+<li>Word 形式の 一覧から、市外局番・市内局番の 桁数・都道府県名・市名・郡名 を 抜き出し、JSON 形式へ変換</li>
+<li>番号区画の うち、市名と 郡名 だけを 残した（町名・字名は 取り込んで いません）</li>
+<li>市名・郡名は、それが ある 都道府県と 組にして 保存</li>
 </ul>
 <p>この 加工は 本アプリの 制作者が 行った ものであり、総務省が 作成した ものでは ありません。</p>
 <hr>

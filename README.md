@@ -1,7 +1,10 @@
 # kantan-setup-filters
 
-Safari content blocker rules converted from EasyList, published for the
-"かんたん設定" iOS app.
+Safari content blocker rules converted from EasyList and EasyPrivacy, published
+for the **スマホのミカタ** (Sumaho no Mikata) iOS app — a setup and scam-check
+assistant for elderly iPhone / iPad users.
+
+This repository also serves the app's `config.json` and its legal documents.
 
 ## Attribution and license
 
@@ -31,8 +34,15 @@ A GitHub Actions workflow runs every Monday:
 5. Validates the output (JSON shape, regex validity, rule ordering)
 6. Publishes to GitHub Pages
 
-The current output is about **115,000 rules**: roughly 108,000 `block`,
-5,300 `css-display-none`, and 1,400 `ignore-previous-rules`.
+The output shipped with the app is **114,718 rules**: 109,418 `block`
+(including `ignore-previous-rules`) and 5,300 `css-display-none`.
+The exact counts are recorded in the app's `blocklist_meta.json`, generated at
+build time so the app never has to read the 13.9 MB list just to show a number.
+
+**The app cannot report how many ads were actually blocked.** Safari never tells
+a content blocker's host app what it blocked — that is the same design that lets
+the app truthfully say it does not know which pages you visit. Only the number
+of rules *supplied* can be shown, and the app says so on screen.
 
 ## Why 120,000 rules?
 

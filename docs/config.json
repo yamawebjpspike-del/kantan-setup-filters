@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-22d",
+  "updatedAt": "2026-09-23",
   "screenTeacher": {
     "url": "",
     "note": "「この画面を教えて」を端末の外へ逃がす中継サーバ。Apple Intelligence 非対応機だけが通る。空のあいだはこの機能を画面に出さない。鍵はここではなくサーバが持つこと。"
@@ -192,7 +192,7 @@
       "id": "g-sms-filter",
       "symbolName": "message.badge",
       "kind": "setup",
-      "title": "知らない人からのメッセージを分ける",
+      "title": "知らない人からのメッセージを分けて表示する",
       "priority": 2,
       "canAutomate": false,
       "walkthrough": [
@@ -230,7 +230,7 @@
       "id": "g-safari-fraud",
       "symbolName": "exclamationmark.shield",
       "kind": "setup",
-      "title": "危ないページの警告を受け取る",
+      "title": "危ないページを開く前に知らせてもらう",
       "priority": 2,
       "canAutomate": false,
       "walkthrough": [
@@ -269,7 +269,7 @@
       "symbolName": "hand.raised",
       "kind": "setup",
       "settingsTarget": "safariExtensions",
-      "title": "ホームページの広告を減らす",
+      "title": "Safariで広告を減らす",
       "priority": 3,
       "canAutomate": false,
       "walkthrough": [
@@ -312,7 +312,7 @@
       "id": "g-default-browser",
       "symbolName": "safari",
       "kind": "setup",
-      "title": "広告ブロックが効くブラウザにする",
+      "title": "Safariを、ふだん使うブラウザにする",
       "priority": 3,
       "canAutomate": false,
       "settingsTarget": "defaultApps",
@@ -465,7 +465,7 @@
         "× が見つからないときは、前の画面に戻ります",
         "それでも消えないときは、画面の下に並んだ絵のうち、四角が2つ重なったものを押して、そのページを閉じます"
       ],
-      "note": "「ウイルスに感染しました」「おめでとうございます、当選しました」と出ても、本当ではありません。ホームページの側から、{端末}がどうなっているかを知る方法はありません。\n\n書いてある電話番号にはかけないでください。同じ文が気になるときは、このアプリの「これ詐欺？と調べる」で調べられます。\n\n広告の数そのものを減らすこともできます。「ホームページの広告を減らす」をごらんください。",
+      "note": "「ウイルスに感染しました」「おめでとうございます、当選しました」と出ても、本当ではありません。ホームページの側から、{端末}がどうなっているかを知る方法はありません。\n\n書いてある電話番号にはかけないでください。同じ文が気になるときは、このアプリの「これ詐欺？と調べる」で調べられます。\n\n広告の数そのものを減らすこともできます。「Safariで広告を減らす」をごらんください。",
       "demoLessonID": "ad-close",
       "related": [
         "g-contentblocker",
@@ -537,7 +537,7 @@
       "id": "t-wifi",
       "kind": "trouble",
       "symbolName": "wifi",
-      "title": "使いすぎにならないか心配",
+      "title": "スマホを使いすぎていないか知りたい",
       "priority": 1,
       "source": "『70歳からのスマホの使いこなし術』の目次より（2026-08-23）",
       "canAutomate": false,
@@ -612,7 +612,7 @@
       "id": "t-notifications",
       "symbolName": "bell.badge.slash",
       "kind": "trouble",
-      "title": "知らせの音が多くてわずらわしい",
+      "title": "スマホから知らない音がして気になる",
       "priority": 5,
       "source": "アイディア出し（2026-09-09）",
       "canAutomate": false,

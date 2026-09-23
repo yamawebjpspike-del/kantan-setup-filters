@@ -1,6 +1,10 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-22c",
+  "updatedAt": "2026-09-22d",
+  "screenTeacher": {
+    "url": "",
+    "note": "「この画面を教えて」を端末の外へ逃がす中継サーバ。Apple Intelligence 非対応機だけが通る。空のあいだはこの機能を画面に出さない。鍵はここではなくサーバが持つこと。"
+  },
   "blocklist": {
     "url": "https://yamawebjpspike-del.github.io/kantan-setup-filters/blocklist.json",
     "version": "2026-08-19",
@@ -287,7 +291,7 @@
         },
         {
           "screen": "機能拡張",
-          "tap": "スマホのミカタ",
+          "tap": "スマホ先生",
           "toggle": true
         }
       ],
@@ -296,7 +300,7 @@
         "「アプリ」を選びます",
         "「Safari」を選びます",
         "「機能拡張」を選びます",
-        "「スマホのミカタ」を押して入にします"
+        "「スマホ先生」を押して入にします"
       ],
       "note": "ページの表示がおかしくなったときは、Siriに「広告ブロックを止めて」と話しかけると、30分だけ止まります。",
       "related": [
@@ -562,7 +566,7 @@
       "id": "g-app-delete-lock",
       "symbolName": "lock.app.dashed",
       "kind": "setup",
-      "title": "アプリをま違って消せないようにする",
+      "title": "アプリを間違って消せないようにする",
       "priority": 2,
       "source": "アイディア出し（2026-09-09）",
       "canAutomate": false,
@@ -638,7 +642,7 @@
       "id": "g-ring-louder",
       "symbolName": "bell.and.waves.left.and.right",
       "kind": "setup",
-      "title": "着信音を大きくし、横のボタンで変わらなくする",
+      "title": "電話の着信音を大きくし、横のボタンで変わらないようにする",
       "priority": 3,
       "source": "アイディア出し（2026-09-09）",
       "canAutomate": false,
@@ -674,7 +678,7 @@
       "id": "g-voice-input",
       "symbolName": "mic.circle",
       "kind": "setup",
-      "title": "文字を打たずに、声で入れられるようにする",
+      "title": "文字を打たずに、声で文字を入れられるようにする",
       "priority": 4,
       "source": "アイディア出し（2026-09-09）",
       "canAutomate": false,
@@ -2556,11 +2560,11 @@
       "symbolName": "app.badge",
       "phrases": [
         {
-          "say": "スマホのミカタでこれ詐欺か調べて",
+          "say": "スマホ先生でこれ詐欺か調べて",
           "does": "調べる画面を開きます"
         },
         {
-          "say": "スマホのミカタで練習したい",
+          "say": "スマホ先生で練習したい",
           "does": "使い方の練習を開きます"
         }
       ]

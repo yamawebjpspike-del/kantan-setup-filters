@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "screenTeacher": {
     "url": "",
     "note": "「この画面を教えて」を端末の外へ逃がす中継サーバ。Apple Intelligence 非対応機だけが通る。空のあいだはこの機能を画面に出さない。鍵はここではなくサーバが持つこと。"
@@ -8,6 +8,18 @@
   "subscriptionScan": {
     "url": "",
     "note": "支払いの写真から読み取った名前が分からないときに、読み取った字だけを聞きに行く中継サーバ。写真そのものは送らない。Apple Intelligence 非対応機だけが通る。空のあいだは外へ出さず、名前を手で直してもらう。鍵はここではなくサーバが持つこと。"
+  },
+  "aiLimits": {
+    "freeWeeklyConsults": 5,
+    "premiumMonthlyConsults": 100,
+    "monthlyCostCapYen": 20,
+    "inputUSDPerMillionTokens": 0.1,
+    "outputUSDPerMillionTokens": 0.4,
+    "yenPerUSD": 150,
+    "imageTileTokens": 258,
+    "imageTileSide": 768,
+    "smallImageSide": 384,
+    "note": "Gemini（Apple Intelligence 非対応機だけが通る）の上限。無料は直近7日で freeWeeklyConsults 回、プレミアムはその月に premiumMonthlyConsults 回。これとは別に、1人あたりの見積もり原価がその月に monthlyCostCapYen 円に届いたら外へ出さない（画面には出さない）。値段・為替が変わったらここを直す。中継サーバーも同じ数字で数えること"
   },
   "blocklist": {
     "url": "https://yamawebjpspike-del.github.io/kantan-setup-filters/blocklist.json",
@@ -488,7 +500,7 @@
         "「カメラ」を開きます",
         "四角い模様が画面の真ん中に入るように向けます",
         "シャッターは押しません",
-        "画面に出てきた黄色い帯を押します"
+        "模様の下に出てきた黄色いボタンを押します"
       ],
       "note": "写真を撮る必要はありません。向けるだけで読み取ります。\n\n近づけすぎると読めません。手のひら一つぶんくらい離してください。",
       "demoLessonID": "qr-scan",
@@ -553,13 +565,21 @@
         {
           "screen": "設定",
           "tap": "Wi-Fi"
+        },
+        {
+          "screen": "Wi-Fi",
+          "tap": "家の機械に書いてある名前"
+        },
+        {
+          "screen": "パスワードを入力",
+          "tap": "接続"
         }
       ],
       "steps": [
         "「設定」を開きます",
         "上のほうの「Wi-Fi」を選びます",
         "家の機械の側面に書いてある名前を探して押します",
-        "同じところに書いてあるパスワードを入れます"
+        "同じところに書いてあるパスワードを入れて、右上の「接続」を押します"
       ],
       "note": "Wi-Fiは勝手にはつながりません。初めの一度だけ、自分でつなぐ必要があります。つないでしまえば、次からは家に帰るたびに自動でつながります。\n\nつながっている間は、動画を見ても携帯電話の料金は増えません。\n\nお店や駅の無料Wi-Fiでは、パスワードやカードの番号を入れないでください。",
       "related": [

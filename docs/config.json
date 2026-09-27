@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-27",
+  "updatedAt": "2026-09-28",
   "screenTeacher": {
     "url": "",
     "note": "「この画面を教えて」を端末の外へ逃がす中継サーバ。Apple Intelligence 非対応機だけが通る。空のあいだはこの機能を画面に出さない。鍵はここではなくサーバが持つこと。"
@@ -572,7 +572,8 @@
         },
         {
           "screen": "パスワードを入力",
-          "tap": "接続"
+          "tap": "接続",
+          "topButton": true
         }
       ],
       "steps": [
